@@ -1,0 +1,1150 @@
+/**
+This file is a near-exact copy of CTAT.css, but with instances of CTAT replaced with TATC.
+This is to preserve styling in copied elements without letting them be recognized by CTAT itself.
+
+Table of Contents:
+** TATC General
+  #TATC Generated Components
+** Button Based Components
+  #TATC Generated button components
+** TATC Text Based Components
+  #TATC Table Components
+  #TATC Text Components
+  #TATC Numeric Stepper
+** TATC Stateful Components
+  #TATC Checkbox
+  #TATC Radio Button
+  #TATC Combobox
+  #TATC Jumble
+  #TATC Drag-N-Drop
+  #TATC Drag Source
+** TATC SVG Based Component
+  #TATC SVG Component
+  #TATC Number Line
+  #TATC Pie Chart
+  #TATC Fraction Bar
+  #TATC Protractor
+** Feedback Components
+  #TATC Hint Button
+  #TATC Done Button
+  #TATC Hint Window
+  #TATC Skill Window
+** Container Components
+  #TATC Scroll Pane Component
+** Multimedia Components
+  #TATC Video
+** Disabling
+  #TATC Button Disabled
+** Grading
+  #TATC incorrect
+  #TATC correct
+  #TATC hint
+  #TATC highlight
+  tatc
+** Scrim
+** Global Utility
+  #unselectable, #hidden
+*/
+
+
+/******************************** TATC General *******************************/
+
+/*-----------------------------------------*\
+  #TATC Generated Components
+  Base class for TATC generated components
+\*-----------------------------------------*/
+
+.TATC-gen-component {
+    /* assume generated component is always within a div and that it should occupy the entire div */
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+  }
+  
+  
+  /*********************** TATC Component Size Defaults ************************/
+  
+  .TATCAudioButton {
+    display: inline-block;
+  }
+  .TATCButton, .TATCSubmitButton {
+    display: inline-block;
+  }
+  .TATCComboBox {
+    display: inline-block;
+  }
+  .TATCHintButton, .TATCDoneButton {
+    color:white;
+    width: 68px;
+    height: 68px;
+  }
+  .TATCDragNDrop {
+    width: 160px;
+    height: 100px;
+  }
+  .TATCDragSource {
+    width: 160px;
+    height: 100px;
+  }
+  .TATCFractionBar {
+    width: 240px;
+    height: 70px;
+  }
+  .TATCGroupingComponent {}
+  .TATCGroupingComponent[data-tatc-use-componentlist="true"] {
+    visibility: hidden;
+  }
+  .TATCHintWindow, .TATCSkillWindow {
+    margin: 2px;
+    width: 240px;
+    height: 140px;
+    flex: auto;
+  }
+  .TATCHintWindow[data-tatc-show-text="true"] {
+    height: unset;
+  }
+  .TATCHintWindow[data-tatc-show-text="false"] .TATCHintWindow--hint-content {
+    display: none;
+  }
+  .TATCImageButton {}
+  .TATCJumble {}
+  .TATCNumberLine {
+    width: 360px;
+    height: 90px;
+  }
+  .TATCNumericStepper {
+    width: 60px;
+    display: inline-block;
+  }
+  .TATCPieChart {
+    width: 100px;
+    height: 100px;
+  }
+  .TATCTextArea {
+    display: inline-block;
+  }
+  .TATCTextField {}
+  .TATCTextInput {
+    display: inline-block;
+  }
+  .TATCMathInput {
+    width: 100px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background: white;
+    border: 1px solid black;
+  }
+  .TATCMathInput .guppy_active, .TATCMathInput .guppy_inactive {
+    width: 100%;
+  }
+  .TATCMathInput-left, .TATCMathInput-right {
+    width: 48%;
+  }
+  .TATCMathInput-equals {
+    padding: 0px 3px;
+  }
+  .TATCMathInput-left {
+    text-align: right;
+  }
+  .TATCMathInput-right {
+    text-align: left;
+  }
+  .TATCMathInput .guppy_buttons {
+    display: none !important;
+  }
+  
+  /************************** Button Based Components **************************/
+  
+  /*---------------------------------------------*\
+    #TATC Generated Button Components
+    Covers TATCAudioButton, TATCButton, TATCDoneButton, TATCHintButton
+  \*---------------------------------------------*/
+  
+  .TATC-button { /* For the generated <button> */
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    font: inherit;
+  }
+  .TATC-button:hover {} /* when the mouse is hovering over the <button> */
+  .TATC-button--clicked {} /* when the <button> is being clicked */
+  .TATC-button:disabled {} /* when the <button> is disabled */
+  
+  
+  /******************** TATC Text Based Components ***********************/
+  /* Note: see TATC Grading for modifying how text based components look for grading */
+  
+  /*-----------------------------------------------------*\
+    #TATC Table Components
+  \*-----------------------------------------------------*/
+  
+  .TATCTable {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .TATCTable--cell textarea {
+    width: 95%;
+    height: 100%;
+    outline: none;
+    box-shadow: none;
+    border: none;
+    background-color: inherit;
+  }
+  .TATCTable--cell[data-tatc-enabled=false] {
+    background-color: lightgray;
+  }
+  .TATCTable--cell textarea.TATC--hint {
+    box-shadow: 0px 0px 15px 5px yellow;
+    background-color: yellow;
+  }
+  .TATCTable--row {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    flex: none;
+  }
+  .TATCTable--cell {
+    flex: none;
+    border: 1px solid black;
+    overflow: hidden;
+    width: 4em; /* cell width */
+    height: 1.2em; /* cell size */
+  }
+  .TATCTable--headers {
+    flex: none;
+  }
+  .TATCTable .TATCTable--header {
+    background-color: linen; /* set header background color */
+  }
+  .TATCTable--header textarea {
+    text-align: center;
+    font-weight: bold; /* change header font */
+  }
+  
+  /*---------------------------------------------------*\
+    #TATC Text Components
+  \*---------------------------------------------------*/
+  
+  .TATCTextField .tatctextfield-marker {
+    position: absolute;
+    z-index: 99999;
+    width: 2px;
+    height: 1em;
+    background-color: #0000B3;
+    cursor: pointer;
+  }
+  .TATCTextField .tatctextfield-marker .handle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #0000B3;
+  }
+  .TATCTextField .tatctextfield-marker .start-handle {
+    right: -8px;
+    top: -10px;
+    box-shadow: #555555 1px 1px 1px;
+  }
+  .TATCTextField .tatctextfield-marker .end-handle {
+    left: -8px;
+    bottom: -10px;
+    box-shadow: #555555 -1px -1px 1px;
+  }
+  
+  .TATCTextArea > textarea {
+    overflow: hidden;
+    resize: none;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    font: inherit;
+    text-align: inherit;
+  }
+  
+  .TATCTextInput > input[type="text"], .TATCTextInput > input[type="number"] {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    font: inherit;
+    text-align: inherit;
+  }
+  
+  .TATCMathInput {
+    background-color: white;
+    border-style: solid;
+  }
+  .TATCMathInput .katex .katex-html {
+    display: block;
+  }
+  
+  /*-------------------------------------------------------*\
+    #TATC Numeric Stepper
+  \*-------------------------------------------------------*/
+  
+  .TATCNumericStepper > input {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    padding-right: 0px;
+    font: inherit;
+    text-align: inherit;
+  }
+  
+  /*-------------------------------------------------------*\
+    #TATCMathInput
+  \*-------------------------------------------------------*/
+  .no-touch .guppy_osk {
+    display: none;
+  }
+  
+  
+  /************************* TATC Stateful Components ***************************/
+  
+  /*------------------------------------------------*\
+    #TATC CheckBox
+    #TATC Radio Button
+  \*------------------------------------------------*/
+  
+  .TATCCheckBox, .TATCRadioButton { /* Container for the button and label. */
+    display: inline-flex; /* this should be either inline-flex or flex */
+    align-items: center;
+    flex-direction: row;
+  }
+  /* extra styling for the sub entities */
+  .TATCCheckBox--button, .TATCRadioButton--button {} /* Added to the generated <input> */
+  .TATCCheckBox--label, .TATCRadioButton--label {
+    opacity:100%;
+  } /* Added to the generated <label> */
+  
+  /*---------------------------------------------------------*\
+    #TATC ComboBox
+  \*---------------------------------------------------------*/
+  
+  .TATCComboBox > select { /* inherit from Component */
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    font: inherit;
+    color: inherit;
+  }
+  
+  /*---------------------------------------------------------*\
+    #TATC Jumble
+  \*---------------------------------------------------------*/
+  
+  .TATCJumble { /* general jumble component styling, (eg) the bounding box */
+    border: 1px solid #CCCCCC;
+    border-radius: 5px;
+    display: inline-flex;
+  }
+  .TATCJumble--item { /* for each individual item in the jumble */
+    border: 1px solid transparent;
+    padding: 0.5ch;
+    cursor: default;
+    user-select: none;
+  }
+  .TATCJumble--item[draggable="true"] { /* for items that are being dragged */
+    -khtml-user-drag: element;
+    -webkit-user-drag: element;
+    cursor: move;
+  }
+  .TATCJumble--item--home {
+    opacity: 0.4;
+  }
+  .TATCJumble--item--over { /* for items that are under the dragged item and would be moved by dropping the item */
+    border-style: dashed;
+    border-color: blue;
+  }
+  
+  /*-----------------------------------------------*\
+    #TATC Drag-N-Drop
+  \*-----------------------------------------------*/
+  
+  .TATCDragNDrop { /* Basic DragNDrop box look */
+    border: 1px solid grey;
+    border-radius: 5px;
+  }
+  .TATCDragNDrop--valid-drop { /* Added when the TATCDragNDrop is a valid drop */
+    border: 1px dashed blue;
+  }
+  .TATCDragNDrop--item { /* styling to apply to all draggable items */
+    cursor: grab;
+  }
+  .TATCDragNDrop--item:active {
+    cursor: grabbing;
+  }
+  
+  /*-----------------------------------------------*\
+    #TATC Drag-Source
+  \*-----------------------------------------------*/
+  
+  .TATCDragSource { /* Basic DragSource box look */
+    border: 1px solid grey;
+    border-radius: 5px;
+  }
+  .TATCDragSource--valid-drop { /* Added when the TATCDragNDrop is a valid drop */
+    border: 1px dashed blue;
+  }
+  .TATCDragSource--item { /* styling to apply to all draggable items */
+    cursor: grab;
+  }
+  .TATCDragSource--item:active {
+    cursor: grabbing;
+  }
+  
+  /******************** TATC SVG Based Component *************************/
+  
+  /*-----------------------------------------------*\
+    #TATC SVG Component
+  \*-----------------------------------------------*/
+  
+  .TATC-svg {
+    background-color: white;
+  }
+  
+  /*-------------------------------------------------------*\
+    #TATC Number Line
+  \*-------------------------------------------------------*/
+  
+  .TATCNumberLine {
+    box-sizing: border-box;
+    border: 1px solid #CCCCCC;
+    border-radius: 5px;
+    padding: 10px;
+  }
+  .TATCNumberLine--cursor {
+    fill: black;
+    fill-opacity: 0.5;
+    stroke-width: 0px;
+    stroke: black;
+    stroke-opacity: 0.5;
+  }
+  .TATCNumberLine--point {
+    fill: black;
+    stroke-width: 0px;
+    /* r: 7px; only supported in Chrome */
+  }
+  .TATCNumberLine--axis {
+    stroke: black;
+    stroke-linecap: round;
+    stroke-width: 2px;
+    fill-opacity: 0;
+  }
+  .TATCNumberLine--tickmark {
+    stroke: black;
+    stroke-width: 2px;
+  }
+  .TATCNumberLine--tickmark-label {
+    stroke: none;
+    fill: black;
+  }
+  .TATCNumberLine--large-tickmark {
+    stroke-width: 4px;
+  }
+  .TATCNumberLine--large-tickmark-label {
+    transform: translate(0px, -3px);
+  }
+  .TATCNumberLine--small-tickmark {}
+  .TATCNumberLine--small-tickmark-label {
+    stroke: none;
+    fill: black;
+    transform: translate(0px, -2px);
+  }
+  .TATCNumberLine--denominator-tickmark {
+    stroke: purple;
+  }
+  .TATCNumberLine--denominator-tickmark-label {
+    display: none;
+  }
+  
+  
+  /*-------------------------------------------------------*\
+    #TATC Chat Panel
+  \*-------------------------------------------------------*/
+  
+  .TATCChatPanel {
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 300px;
+    height: 50px;
+  }
+  .TATCChatPanel--chat-area {
+    flex-grow: 1;
+    border: 2px solid rgb(211, 211, 211);
+    overflow-y: auto;
+    padding: 7px;
+    background-color: white;
+  }
+  .TATCChatPanel--input-div {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    border-left: 2px solid rgb(211, 211, 211);
+    border-right: 2px solid rgb(211, 211, 211);
+    background-color: white;
+  }
+  .TATCChatPanel--warning-div {
+    margin: 0.5em 1em;
+    background-color: white;
+  }
+  .TATCChatPanel--message-box {
+    border: 2px solid rgb(211, 211, 211);
+    resize: none;
+    margin: 1px;
+    font-family: Verdana;
+    background-color: white;
+  }
+  .TATCChatPanel--single-message {
+    border-radius: 5px;
+    background-color: white;
+    border: 1px solid #9096a0;
+    box-shadow: 2px 2px #9096a0;
+    margin-bottom: 5px;
+    margin-top: 2px;
+    max-width: 90%;
+    word-wrap: break-word;
+    padding: 5px 8px;
+    display: inline-block;
+    float: right;
+    clear: both;
+    font-family: Verdana;
+    position: relative;
+  }
+  .TATCChatPanel--send-button {
+    width: 20%;
+    border: 2px solid #9096a0;
+    border-radius: 10px;
+    margin-top: 5px;
+  }
+  .TATCChatPanel--timestamp {
+    font-size: .8em;
+    color: grey;
+    padding-right: 3px;
+    float: right;
+  }
+  .TATCChatPanel--other-message {
+    border-radius: 5px;
+    position: relative;
+    background-color: #c7edfc;
+    margin-bottom: 5px;
+    margin-top: 2px;
+    max-width: 90%;
+    word-wrap: break-word;
+    padding: 5px 8px;
+    display: inline-block;
+    font-family: Verdana;
+  }
+  .TATCChatPanel--comp-message {
+    border-radius: 5px;
+    position: relative;
+    background-color: #d5dde8;
+    margin-bottom: 5px;
+    margin-top: 2px;
+    max-width: 90%;
+    word-wrap: break-word;
+    padding: 5px 8px;
+    display: inline-block;
+    font-family: Verdana;
+  }
+  
+  /*-------------------------------------------------------*\
+    #TATC Pie Chart
+    #TATC Fraction Bar
+  \*-------------------------------------------------------*/
+  
+  .TATCPieChart--container { /* pie chart container */
+    padding: 0px;
+    border: 1px solid #CCCCCC;
+    border-radius: 5px;
+    overflow: visible;
+    /*--explode: 10px; only supported in moz */
+  }
+  .TATCFractionBar--container { /* fraction bar container */
+    border: 2px solid #CCCCCC;
+    border-radius: 5px;
+  }
+  .TATCPieChart--piece { /* pie chart wedge */
+    stroke: black;
+    stroke-width: 1px;
+    fill: purple;
+    overflow: visible;
+  }
+  /* Can specify .TATC-pie-chart--piece[data-value="1/4"] to change color based on values */
+  .TATCPieChart--piece[data-selected="false"] { /* deselected pie chart wedge */
+    fill-opacity: 0.2;
+  }
+  .TATCFractionBar--piece { /* fraction bar piece */
+    padding: 2px;
+    stroke-width: 1px;
+    stroke: black;
+    fill: purple;
+  }
+  .TATCFractionBar--piece[data-selected="false"] { /* deselected fraction bar piece */
+    fill-opacity: 0.2;
+  }
+  .TATCFractionBar--label { /* fraction bar piece value labels */
+    display: none;
+    pointer-events: none;
+  }
+  
+  /*-------------------------------------------------------*\
+    #TATC Protractor
+  \*-------------------------------------------------------*/
+  
+  .TATCProtractor {
+    min-height: 200px;
+    min-width: 400px;
+    max-width: 1000px;
+    max-height: 500px;
+    display: contents;
+  }
+  .TATCProtractor--container {
+    height: auto;
+    width: 100%;
+    outline: 2px solid cornflowerblue;
+    outline-offset: -2px;
+  }
+  .TATCProtractor--compass {
+    stroke: rgb(131, 171, 245);
+    stroke-width: 3px;
+    fill: none;
+  }
+  .TATCProtractor--ticks {
+    stroke: rgb(163, 118, 5);
+    stroke-width: 4px;
+  }
+  .TATCProtractor--labels {
+    text-anchor: middle;
+    fill: rgb(47, 110, 182);
+    font-size: 80%;
+  }
+  .TATCProtractor--label90 {
+    font-weight: bold;
+    font-size: 125%;
+  }
+  .TATCProtractor--label-origin {
+    text-anchor: middle;
+    font-style: italic;
+    stroke: none;
+    font-size: 125%;
+    fill: blue;
+  }
+  .TATCProtractor--protrays {
+    stroke: rgb(0, 204, 194);
+    fill: rgb(0, 204, 194);
+    stroke-width: 2;
+  }
+  .TATCProtractor--fgrays {
+    stroke: blue;
+    fill: blue;
+    stroke-width: 2;
+  }
+  .TATCProtractor--labelray {
+    text-anchor: middle;
+    font-style: italic;
+    stroke: none;
+    font-size: 100%;
+  }
+  .TATCProtractor--select {
+    cursor: grab;
+    user-select: auto;
+  }
+  .TATCProtractor--correct {
+    filter: drop-shadow(-1px 0 3px limegreen) drop-shadow(1px 0 3px limegreen) drop-shadow(0 1px 3px limegreen);
+  }
+  .TATCProtractor--incorrect {
+    filter: drop-shadow(-1px 0 3px red) drop-shadow(1px 0 3px red) drop-shadow(0 1px 3px red);
+  }
+  .TATCProtractor--hint {
+    filter: drop-shadow(-1px 0 3px yellow) drop-shadow(1px 0 3px yellow) drop-shadow(0 1px 3px yellow);
+  }
+  
+  /************************** Feedback Components *******************************/
+  
+  /*---------------------------------------------*\
+    #TATC Hint Button
+  \*---------------------------------------------*/
+  
+  /* Also used for in TATCHintWindow to increase connection */
+  /* Should .TATCHintWindow--button--* be added so that they can be modified independently? */
+  /* This is in the SVG section because of the option to have SVG buttons as part of the component.
+    If this feature is dropped, then this should be moved to its own section */
+  .TATCHintButton { /* for that classic TATC look and feel */
+    font: 15px Helvetica Neue, Helvetica, Arial, sans-serif;
+  }
+  .TATC-hint-button { /* on the <button> */
+    border: 1px solid orange;
+    border-radius: 5px;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    padding: 0;
+    background-color: gold; /*#FFCC33;*/
+    font: inherit;
+    cursor: pointer;
+  }
+  .TATC-hint-button--icon { /* on the ? */
+    position: relative;
+    top: -5px;
+    height: 60%;
+    pointer-events: none;
+    font-size: 44px;
+    font-weight: bold;
+  }
+  .TATC-hint-button--text { /* on the text (eg) "Hint" */
+    pointer-events: none;
+  }
+  .TATC-hint-button--hover { /* added when moused over */
+    background-color: #E6C200 /*#FFED3A*/;
+  }
+  .TATC-hint-button--clicked { /* added when it is clicked */
+    background-color: #FFDB19 /*#FFED3A*/;
+  }
+  .TATCHintWindow--middle-btn-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /*--------------------------------------------------*\
+    #TATC Done Button
+  \*--------------------------------------------------*/
+  
+  .TATCDoneButton { /* default Done button font for that classic TATC feel */
+    font: 15px Helvetica Neue, Helvetica, Arial, sans-serif;
+  }
+  .TATC-done-button { /* for the <button> inside the TATCDoneButton */
+    border: 1px solid green;
+    border-radius: 5px;
+    border-color: green;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    background-color: #88CC44;
+    font: inherit;
+    cursor: pointer;
+  }
+  .TATC-done-button--content { /* for the <div> inside the <button> */
+    width: inherit;
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    pointer-events: none;
+  }
+  .TATC-done-button--icon { /* for the checkmark */
+    position: relative;
+    top: -5px;
+    height: 60%;
+    font-size: 44px;
+    font-weight: bold;
+    pointer-events: none;
+  }
+  .TATC-done-button--text { /* for the text (eg) Done */
+    margin-bottom: 5px;
+    flex: none;
+    pointer-events: none;
+  }
+  .TATC-done-button--hover { /* added when hovering over the button */
+    background-color: #5C8A00;
+  }
+  .TATC-done-button--clicked { /* added when clicking the button */
+    background-color: #85AD33;
+  }
+  
+  /*-----------------------------------------------*\
+    #TATC Hint Window
+  \*-----------------------------------------------*/
+  
+  .TATCHintWidget .TATCHintWindow { /* Hint window styling, assumes single instance */
+    position: absolute;
+    left: 0;
+    right: 71px;
+    top: 0;
+    bottom: 0;
+    width: auto;
+    height: auto;
+  }
+  
+  .TATCHintWindow { /* hint window container styling */
+    border-radius: 5px;
+    border: 1px solid #CCCCCC;
+    padding: 5px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background-color: #DDDDDD;
+    user-select: none;
+  }
+  .TATCHintWindow--hint-content { /* Hint window content (eg) hints */
+    margin-bottom: 5px;
+    border: 1px solid #CCCCCC;
+    padding: 2px;
+    flex: auto;
+    overflow: auto;
+    background: white;
+    text-align: left;
+    cursor: default;
+  }
+  .TATCHintWindow--hint-button-area { /* area containing the buttons */
+    flex: none;
+    display: flex;
+    justify-content: space-between;
+  }
+  .TATCHintWindow--hint-indicator {
+    flex: 1;
+    text-align: center;
+  }
+  .TATCHintWindow--hint-indicator-bullet {
+    color: #9a9a9a;
+  }
+  .TATCHintWindow--button { /* hint window buttons, also uses TATC hint button style, mostly for coloring */
+    border-radius: 5px;
+    width: 82px;
+    height: 20px;
+    font: 11px Helvetica Neue, Helvetical, Arial, sans-serif;
+    line-height: 16px;
+  }
+  .TATCHintWindow--button-icon { /* the arrows in the buttons */
+    margin-left: 3px;
+    margin-right: 3px;
+    vertical-align: middle;
+    font-weight: bold;
+  }
+  .TATCHintWindow--previous {} /* hint window previous button */
+  .TATCHintWindow--next {} /* hint window next button */
+  
+  /*-----------------------------------------------------*\
+    #TATC Skill Window
+  \*-----------------------------------------------------*/
+  
+  .TATCSkillWindow { /* skill window container */
+    border: 1px solid #CCCCCC;
+    border-radius: 5px;
+    box-sizing: border-box;
+    padding: 5px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    background-color: #FAFAFA;
+    font-size: 12px;
+  }
+  .TATCSkillWindow--skill { /* container for meter + label */
+    flex: none;
+    display: flex;
+  }
+  .TATCSkillWindow--bar { /* skill meter bar */
+    border: 1px solid #CCCCCC;
+    border-radius: 0.5em;
+    height: 1em;
+    flex: 1;
+    overflow: hidden;
+    background-color: white;
+  }
+  .TATCSkillWindow--bar--nonmastered { /* skill meter bar non-mastery fill */
+    height: 100%;
+    background: gold;
+  }
+  .TATCSkillWindow--bar--mastery { /* skill meter bar mastery fill */
+    height: 100%;
+    background: #88CC44;
+  }
+  .TATCSkillWindow--label { /* skill meter label */
+    margin-left: 5px;
+    height: 1.5em;
+    flex: 2;
+    overflow: hidden;
+    text-align: left;
+    white-space: nowrap;
+  }
+  
+  
+  /***************************** Container Components ***************************/
+  
+  /*---------------------------------------------------------------------------*\
+    #TATC Scroll Pane Component
+  \*---------------------------------------------------------------------------*/
+  
+  /* For the scroll pane component, probably not the best way to specify it
+    given how html authoring will happen, but it works for now. */
+  [data-tatc-component="TATCScrollPaneComponent"] {
+    border: 4px;
+    display: block;
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+  
+  
+  /*********************** Multimedia Components ********************************/
+  
+  /*----------------------------------------------------------------------------*\
+    #TATC Video
+  \*----------------------------------------------------------------------------*/
+  
+  video.TATC-gen-component {
+    background-color: inherit;
+  }
+  
+  
+  /********************************* Disabling **********************************/
+  
+  /*-------------------------------------------------------*\
+    #TATC Button Disabled
+  \*-------------------------------------------------------*/
+  
+  /*button.TATC-gen-component:disabled,*/
+  button.TATC-hint-button:disabled, button.TATC-done-button:disabled, button.TATCHintWindow--button:disabled {
+    border: 1px solid darkgrey;
+    background-color: #EDEDED;
+    color: #9A9A9A;
+    cursor: default;
+  }
+  
+  
+  /********************** Grading **************************/
+  
+  /*-------------------------------------------------------*\
+    #TATC incorrect
+  \*-------------------------------------------------------*/
+  
+  .TATC--incorrect {
+    box-shadow: 0px 0px 7px 2px red;
+  }
+  textarea.TATC--incorrect, input.TATC--incorrect[type="text"], input.TATC--incorrect[type="number"] {
+    box-shadow: none;
+    color: red;
+  }
+  label.TATC--incorrect {
+    box-shadow: none;
+    text-shadow: 0px 0px 5px red;
+  }
+  input.TATC--incorrect[type="checkbox"], input.TATC--incorrect[type="radio"] {
+    box-shadow: 0px 0px 5px 0px red;
+  }
+  .TATCNumberLine--point.TATC--incorrect {
+    fill: red;
+    fill-opacity: 0.7;
+  }
+  
+  /*-------------------------------------------------------*\
+    #TATC correct
+  \*-------------------------------------------------------*/
+  
+  .TATC--correct { /* general correct highlighting */
+    box-shadow: 0px 0px 7px 2px limegreen;
+  }
+  textarea.TATC--correct, input.TATC--correct[type="text"], div.TATCMathInput.TATC--correct { /* font color change for text components */
+    box-shadow: none;
+    color: green;
+  }
+  label.TATC--correct { /* labels for checkboxes and radio buttons */
+    box-shadow: none;
+    text-shadow: 0px 0px 5px limegreen;
+  }
+  input.TATC--correct[type="checkbox"], input.TATC--correct[type="radio"] {
+    box-shadow: 0px 0px 5px 0px limegreen;
+  }
+  .TATCNumberLine--point.TATC--correct {
+    fill: limegreen;
+  }
+  
+  /*-------------------------------------------------------*\
+    #TATC hint
+  \*-------------------------------------------------------*/
+  
+  .TATC--hint {
+    position: relative;
+    z-index: 2;
+    box-shadow: 0px 0px 7px 5px yellow;
+  }
+  label.TATC--hint {
+    box-shadow: none;
+    text-shadow: 0px 0px 5px yellow;
+  }
+  input.TATC--hint[type="checkbox"], input.TATC--hint[type="radio"] {
+    box-shadow: 0px 0px 5px 0px yellow;
+  }
+  
+  /*-------------------------------------------------------*\
+    #TATC highlight
+  \*-------------------------------------------------------*/
+  
+  .TATC--highlight {
+    box-shadow: 0px 0px 15px 5px yellow;
+  }
+  label.TATC--highlight {
+    box-shadow: none;
+    text-shadow: 0px 0px 5px yellow;
+  }
+  input.TATC--highlight[type="checkbox"], input.TATC--highlight[type="radio"] {
+    box-shadow: 0px 0px 5px 0px yellow;
+  }
+  
+  /********************** Scrim **************************/
+  
+  /*-------------------------------------------------------*\
+    Used by the Scrim
+  \*-------------------------------------------------------*/
+  
+  .tatcpageoverlay {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(128, 128, 128, 0.5);
+  }
+  .css3-windows-7 .fenster {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    box-shadow: 0 0 0 1px #EEEEEE inset, 0 0 15px rgba(0, 0, 0, 0.9);
+    border: 1px solid black;
+    border-radius: 7px;
+    width: 389px;
+    height: 146px;
+    padding-bottom: 46px;
+    transform: translate(-50%, -50%);
+    background-color: rgba(160, 160, 160, 0.4);
+  }
+  .css3-windows-7 .fenster .titel {
+    margin: 0px;
+    height: 16px;
+    padding: 6px 0 6px 28px;
+    overflow: hidden;
+    background: transparent url(data:image/gif;base64,R0lGODlhEAAQAPcAAAAAAP///8TAwv39/ikvVJGUp+rr8UtRcVBWdomNoh0nUiQtVSgyWikyWvHy9u/w9BglViAtXSIvXCUwWwEXVQIYVgMZWAQaWAUbWQUbWAYcWQcdWgcdWQccWAgeWgkfWwogXAsgXQshXQshXA0iXg0iXQ4jXw4kXw4jXg8kXxAlYBElYBEmYBInYRMoYhMoYRMoYBMnXxYrZBYpYBgtZhgsZRktZhkuZhovZx0waCI2bCY5bjFDdTRGeDpMfD5PfkJSgUNUgkdXhEpahllnkGJvloiSr5GbtpOct5ylvaKqwKmwxba8zrm/0L7E1M3R3dzf6N/i6t3g6PLz9g8lXxAmYBguZmVzmGp4nHOAoqqyxsHH1r/F1Ovt8vX2+Pr7/P+eGP+fGP+dGf+bGv6bGvqZG/mZHPiYHPOWHeqSIOWQIcuEKPmYHPaXHfWWHeiQIeaPIeeQIuOOIuKOIuCMI9yLJNGFJ9CFJ8+DKMuCKcyCKo5jO4FeP4dhQXtcRG9VRWZQSP///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAAIEALAAAAAAQABAAAAjdAHEIxNGnTZyDB8/4wUFDh4qHKvaIIcPmjJkxYPioMGGlhccWf/DocVMGTR47gFqowPGxxQwYBOCIobOgQwyVLD+i8IDgjZg5BYq4WLFSJwslAnzKSTDAyIUqOVl8WDLlgFIIQLCIKNqCA5EAQhQolQCixAuuHpw0qcBg7MeiVGoYyGKhrRg5Et6yTJHDwRUMDdKEUZPXY1EVLKAgoTDhTp01EfR6zHCki4wRLVmQwOmxxI4HWj5oOJFiwwkeLLi20DDEy5YgN2z4YJIkg+oWGXpw+RJFypcnP0JADQgAOw==) no-repeat 6px 6px;
+    text-overflow: ellipsis;
+    font: normal 12px/16px "Segoe UI", Arial, sans-serif;
+    color: black;
+    text-shadow: 0 0 1px white, 3px 3px 5px white, -3px -3px 5px white, -3px 3px 5px white, 3px -3px 5px white;
+    /*cursor: move;*/
+    white-space: nowrap;
+  }
+  .css3-windows-7 .fenster .inhalt {
+    position: relative;
+    margin: 0 6px;
+    box-shadow: 0 0 0px 1px rgba(255, 255, 255, 0.65);
+    border: 1px solid #666666;
+    border-radius: 1px;
+    height: 100%;
+    padding: 5px;
+    overflow: auto;
+    background-color: white;
+    font: bold 16px arial, sans-serif;
+    color: black;
+    text-align: center;
+    vertical-align: middle;
+  }
+  .css3-windows-7 .inhalt p {
+    margin-bottom: 10px;
+  }
+  .css3-windows-7 .inhalt img {
+    margin: 0 20px 10px 0;
+    border: 0px solid #DDDDDD;
+    padding: 1px;
+    background-color: #F1F1F1;
+  }
+  
+  /* Resizeable */
+  .ui-resizable-handle {
+    position: absolute;
+    display: block;
+  }
+  .ui-resizable-disabled .ui-resizable-handle, .ui-resizable-autohide .ui-resizable-handle {
+    display: none;
+  }
+  .ui-resizable-n, .ui-resizable-s {
+    left: 0;
+    width: 100%;
+    height: 7px;
+  }
+  .ui-resizable-n {
+    top: -5px;
+    cursor: n-resize;
+  }
+  .ui-resizable-s {
+    bottom: -5px;
+    cursor: s-resize;
+  }
+  .ui-resizable-e, .ui-resizable-w {
+    top: 0;
+    width: 7px;
+    height: 100%;
+  }
+  .ui-resizable-e {
+    right: -5px;
+    cursor: e-resize;
+  }
+  .ui-resizable-w {
+    left: -5px;
+    cursor: w-resize;
+  }
+  .ui-resizable-se, .ui-resizable-sw, .ui-resizable-nw, .ui-resizable-ne {
+    width: 12px;
+    height: 12px;
+  }
+  .ui-resizable-se {
+    right: 0;
+    bottom: 0;
+    cursor: se-resize;
+  }
+  .ui-resizable-sw {
+    left: 0;
+    bottom: 0;
+    cursor: sw-resize;
+  }
+  .ui-resizable-nw {
+    left: 0;
+    top: 0;
+    cursor: nw-resize;
+  }
+  .ui-resizable-ne {
+    right: 0;
+    top: 0;
+    cursor: ne-resize;
+  }
+  
+  .scrimButton {
+    margin: 2px;
+    border: 1px solid #000000;
+    border-radius: 6px;
+    box-shadow: inset 0px 1px 0px 0px white;
+    padding: 6px 24px;
+    display: inline-block;
+    background: linear-gradient(to bottom, #F9F9F9 5%, #E9E9E9 100%);
+    cursor: pointer;
+    font-family: Arial;
+    font-size: 15px;
+    font-weight: bold;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px white;
+    color: #666666;
+  }
+  .scrimButton:hover {
+    background: linear-gradient(to bottom, #E9E9E9 5%, #F9F9F9 100%);
+  }
+  .scrimButton:active {
+    top: 1px;
+    position: relative;
+  }
+  
+  /******************************* Global Utilities ******************************/
+  
+  /*-------------------------------------------------*\
+    #unselectable, #hidden
+    General classes for making entities unselectable or hidden
+  \*-------------------------------------------------*/
+  
+  .unselectable {
+    user-select: none;
+  }
+  .hidden {
+    display: none !important;
+  }
+  

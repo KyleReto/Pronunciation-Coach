@@ -1,0 +1,928 @@
+[
+    {
+        "type": "Flexbox",
+        "resizable": true,
+        "classes": [
+            {
+                "name": "flexbox",
+                "active": false
+            }
+        ],
+        "attributes": {
+            "id": "iaqq"
+        },
+        "components": [
+            {
+                "tagName": "section",
+                "resizable": true,
+                "classes": [
+                    {
+                        "name": "HintWidgetRow",
+                        "active": false
+                    }
+                ],
+                "attributes": {
+                    "id": "ilid"
+                },
+                "components": [
+                    {
+                        "type": "text",
+                        "content": "<div>Pronunciation Coach</div><div>POL Project</div><div>Kyle Reto and Laura Delince<br></div>",
+                        "attributes": {
+                            "id": "izh2j"
+                        }
+                    },
+                    {
+                        "tagName": "section",
+                        "type": "Flexrow",
+                        "resizable": true,
+                        "classes": [
+                            {
+                                "name": "flexrow",
+                                "active": false
+                            }
+                        ],
+                        "attributes": {
+                            "id": "icwk"
+                        },
+                        "components": [
+                            {
+                                "type": "Flexcolumn",
+                                "resizable": true,
+                                "classes": [
+                                    {
+                                        "name": "flexcolumn",
+                                        "active": false
+                                    }
+                                ],
+                                "components": [
+                                    {
+                                        "type": "text",
+                                        "content": "Step 1 : Click on the vowels in the word<br>",
+                                        "attributes": {
+                                            "id": "step1Label"
+                                        }
+                                    },
+                                    {
+                                        "type": "text",
+                                        "content": "Step 2: Break the word apart<br>",
+                                        "attributes": {
+                                            "id": "step2Label"
+                                        }
+                                    },
+                                    {
+                                        "type": "text",
+                                        "content": "Step 3: Identify how each vowel sounds.<br>",
+                                        "attributes": {
+                                            "id": "step3Label"
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "Flexcolumn",
+                                "resizable": true,
+                                "classes": [
+                                    {
+                                        "name": "flexcolumn",
+                                        "active": false
+                                    }
+                                ],
+                                "attributes": {
+                                    "id": "ia6l8"
+                                },
+                                "components": [
+                                    {
+                                        "type": "text",
+                                        "content": "Attempt Log<br>",
+                                        "attributes": {
+                                            "id": "ir7fv"
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "textnode",
+                                "content": " \n\n              "
+                            }
+                        ]
+                    },
+                    {
+                        "type": "Plainbox",
+                        "resizable": true,
+                        "attributes": {
+                            "id": "workspaceContainer"
+                        },
+                        "components": [
+                            {
+                                "type": "text",
+                                "content": "What word would you like to learn?<br>",
+                                "attributes": {
+                                    "id": "workspacePrompt"
+                                }
+                            },
+                            {
+                                "type": "Flexbox",
+                                "resizable": true,
+                                "classes": [
+                                    {
+                                        "name": "flexbox",
+                                        "active": false
+                                    }
+                                ],
+                                "attributes": {
+                                    "id": "wordEntryContainer"
+                                },
+                                "components": [
+                                    {
+                                        "type": "CTATTextInput",
+                                        "resizable": true,
+                                        "classes": [
+                                            {
+                                                "name": "CTATTextInput",
+                                                "active": false
+                                            }
+                                        ],
+                                        "attributes": {
+                                            "id": "wordEntryBox"
+                                        },
+                                        "droppbale": false
+                                    },
+                                    {
+                                        "type": "textnode",
+                                        "content": " \n              "
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "Flexbox",
+                                "resizable": true,
+                                "classes": [
+                                    {
+                                        "name": "flexbox",
+                                        "active": false
+                                    }
+                                ],
+                                "attributes": {
+                                    "id": "vowelIdContainer"
+                                },
+                                "components": [
+                                    {
+                                        "type": "Flexbox",
+                                        "resizable": true,
+                                        "classes": [
+                                            {
+                                                "name": "flexbox",
+                                                "active": false
+                                            }
+                                        ],
+                                        "attributes": {
+                                            "id": "i1z1v"
+                                        },
+                                        "components": [
+                                            {
+                                                "type": "text",
+                                                "resizable": true,
+                                                "editable": "true",
+                                                "content": "L",
+                                                "classes": [
+                                                    {
+                                                        "name": "CTATTextField",
+                                                        "active": false
+                                                    }
+                                                ],
+                                                "attributes": {
+                                                    "id": "iut8l"
+                                                },
+                                                "droppbale": false
+                                            },
+                                            {
+                                                "type": "CTATCheckBox",
+                                                "classes": [
+                                                    {
+                                                        "name": "CTATCheckBox",
+                                                        "active": false
+                                                    }
+                                                ],
+                                                "attributes": {
+                                                    "id": "vowel1",
+                                                    "name": "vowel1"
+                                                },
+                                                "droppbale": false
+                                            },
+                                            {
+                                                "type": "textnode",
+                                                "content": " \n              "
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "Flexbox",
+                                        "resizable": true,
+                                        "classes": [
+                                            {
+                                                "name": "flexbox",
+                                                "active": false
+                                            }
+                                        ],
+                                        "attributes": {
+                                            "id": "i72if"
+                                        },
+                                        "components": [
+                                            {
+                                                "type": "text",
+                                                "resizable": true,
+                                                "editable": "true",
+                                                "content": "E",
+                                                "classes": [
+                                                    {
+                                                        "name": "CTATTextField",
+                                                        "active": false
+                                                    }
+                                                ],
+                                                "attributes": {
+                                                    "id": "ixg8j"
+                                                },
+                                                "droppbale": false
+                                            },
+                                            {
+                                                "type": "CTATCheckBox",
+                                                "classes": [
+                                                    {
+                                                        "name": "CTATCheckBox",
+                                                        "active": false
+                                                    }
+                                                ],
+                                                "attributes": {
+                                                    "id": "vowel2",
+                                                    "name": "vowel2"
+                                                },
+                                                "droppbale": false
+                                            },
+                                            {
+                                                "type": "textnode",
+                                                "content": " \n              "
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "Flexbox",
+                                        "resizable": true,
+                                        "classes": [
+                                            {
+                                                "name": "flexbox",
+                                                "active": false
+                                            }
+                                        ],
+                                        "attributes": {
+                                            "id": "indl8"
+                                        },
+                                        "components": [
+                                            {
+                                                "type": "text",
+                                                "resizable": true,
+                                                "editable": "true",
+                                                "content": "T",
+                                                "classes": [
+                                                    {
+                                                        "name": "CTATTextField",
+                                                        "active": false
+                                                    }
+                                                ],
+                                                "attributes": {
+                                                    "id": "i9d81"
+                                                },
+                                                "droppbale": false
+                                            },
+                                            {
+                                                "type": "CTATCheckBox",
+                                                "classes": [
+                                                    {
+                                                        "name": "CTATCheckBox",
+                                                        "active": false
+                                                    }
+                                                ],
+                                                "attributes": {
+                                                    "id": "vowel3",
+                                                    "name": "vowel3"
+                                                },
+                                                "droppbale": false
+                                            },
+                                            {
+                                                "type": "textnode",
+                                                "content": " \n              "
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "Flexbox",
+                                        "resizable": true,
+                                        "classes": [
+                                            {
+                                                "name": "flexbox",
+                                                "active": false
+                                            }
+                                        ],
+                                        "attributes": {
+                                            "id": "itkfs"
+                                        },
+                                        "components": [
+                                            {
+                                                "type": "text",
+                                                "resizable": true,
+                                                "editable": "true",
+                                                "content": "T",
+                                                "classes": [
+                                                    {
+                                                        "name": "CTATTextField",
+                                                        "active": false
+                                                    }
+                                                ],
+                                                "attributes": {
+                                                    "id": "ib7vl"
+                                                },
+                                                "droppbale": false
+                                            },
+                                            {
+                                                "type": "CTATCheckBox",
+                                                "classes": [
+                                                    {
+                                                        "name": "CTATCheckBox",
+                                                        "active": false
+                                                    }
+                                                ],
+                                                "attributes": {
+                                                    "id": "vowel4",
+                                                    "name": "vowel4"
+                                                },
+                                                "droppbale": false
+                                            },
+                                            {
+                                                "type": "textnode",
+                                                "content": " \n              "
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "Flexbox",
+                                        "resizable": true,
+                                        "classes": [
+                                            {
+                                                "name": "flexbox",
+                                                "active": false
+                                            }
+                                        ],
+                                        "attributes": {
+                                            "id": "ig9bv"
+                                        },
+                                        "components": [
+                                            {
+                                                "type": "text",
+                                                "resizable": true,
+                                                "editable": "true",
+                                                "content": "E",
+                                                "classes": [
+                                                    {
+                                                        "name": "CTATTextField",
+                                                        "active": false
+                                                    }
+                                                ],
+                                                "attributes": {
+                                                    "id": "irz9g"
+                                                },
+                                                "droppbale": false
+                                            },
+                                            {
+                                                "type": "CTATCheckBox",
+                                                "classes": [
+                                                    {
+                                                        "name": "CTATCheckBox",
+                                                        "active": false
+                                                    }
+                                                ],
+                                                "attributes": {
+                                                    "id": "vowel5",
+                                                    "name": "vowel5"
+                                                },
+                                                "droppbale": false
+                                            },
+                                            {
+                                                "type": "textnode",
+                                                "content": " \n              "
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "Flexbox",
+                                        "resizable": true,
+                                        "classes": [
+                                            {
+                                                "name": "flexbox",
+                                                "active": false
+                                            }
+                                        ],
+                                        "attributes": {
+                                            "id": "i7xst"
+                                        },
+                                        "components": [
+                                            {
+                                                "type": "text",
+                                                "resizable": true,
+                                                "editable": "true",
+                                                "content": "R",
+                                                "classes": [
+                                                    {
+                                                        "name": "CTATTextField",
+                                                        "active": false
+                                                    }
+                                                ],
+                                                "attributes": {
+                                                    "id": "ip4pm"
+                                                },
+                                                "droppbale": false
+                                            },
+                                            {
+                                                "type": "CTATCheckBox",
+                                                "classes": [
+                                                    {
+                                                        "name": "CTATCheckBox",
+                                                        "active": false
+                                                    }
+                                                ],
+                                                "attributes": {
+                                                    "id": "vowel6",
+                                                    "name": "vowel6"
+                                                },
+                                                "droppbale": false
+                                            },
+                                            {
+                                                "type": "textnode",
+                                                "content": " \n              "
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "textnode",
+                                        "content": " \n              "
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "Flexbox",
+                                "resizable": true,
+                                "classes": [
+                                    {
+                                        "name": "flexbox",
+                                        "active": false
+                                    }
+                                ],
+                                "attributes": {
+                                    "id": "breakingContainer"
+                                },
+                                "components": [
+                                    {
+                                        "type": "text",
+                                        "resizable": true,
+                                        "editable": "true",
+                                        "content": "L",
+                                        "classes": [
+                                            {
+                                                "name": "CTATTextField",
+                                                "active": false
+                                            }
+                                        ],
+                                        "attributes": {
+                                            "id": "i34zk"
+                                        },
+                                        "droppbale": false
+                                    },
+                                    {
+                                        "type": "CTATCheckBox",
+                                        "classes": [
+                                            {
+                                                "name": "CTATCheckBox",
+                                                "active": false
+                                            }
+                                        ],
+                                        "attributes": {
+                                            "id": "breakBox1",
+                                            "name": "breakBox1"
+                                        },
+                                        "droppbale": false
+                                    },
+                                    {
+                                        "type": "text",
+                                        "resizable": true,
+                                        "editable": "true",
+                                        "content": "E",
+                                        "classes": [
+                                            {
+                                                "name": "CTATTextField",
+                                                "active": false
+                                            }
+                                        ],
+                                        "attributes": {
+                                            "id": "i4gwz"
+                                        },
+                                        "droppbale": false
+                                    },
+                                    {
+                                        "type": "CTATCheckBox",
+                                        "classes": [
+                                            {
+                                                "name": "CTATCheckBox",
+                                                "active": false
+                                            }
+                                        ],
+                                        "attributes": {
+                                            "id": "breakBox2",
+                                            "name": "breakBox2"
+                                        },
+                                        "droppbale": false
+                                    },
+                                    {
+                                        "type": "text",
+                                        "resizable": true,
+                                        "editable": "true",
+                                        "content": "T",
+                                        "classes": [
+                                            {
+                                                "name": "CTATTextField",
+                                                "active": false
+                                            }
+                                        ],
+                                        "attributes": {
+                                            "id": "in2lw"
+                                        },
+                                        "droppbale": false
+                                    },
+                                    {
+                                        "type": "CTATCheckBox",
+                                        "classes": [
+                                            {
+                                                "name": "CTATCheckBox",
+                                                "active": false
+                                            }
+                                        ],
+                                        "attributes": {
+                                            "id": "breakBox3",
+                                            "name": "breakBox3"
+                                        },
+                                        "droppbale": false
+                                    },
+                                    {
+                                        "type": "text",
+                                        "resizable": true,
+                                        "editable": "true",
+                                        "content": "T",
+                                        "classes": [
+                                            {
+                                                "name": "CTATTextField",
+                                                "active": false
+                                            }
+                                        ],
+                                        "attributes": {
+                                            "id": "idvtt"
+                                        },
+                                        "droppbale": false
+                                    },
+                                    {
+                                        "type": "CTATCheckBox",
+                                        "classes": [
+                                            {
+                                                "name": "CTATCheckBox",
+                                                "active": false
+                                            }
+                                        ],
+                                        "attributes": {
+                                            "id": "breakBox4",
+                                            "name": "breakBox4"
+                                        },
+                                        "droppbale": false
+                                    },
+                                    {
+                                        "type": "text",
+                                        "resizable": true,
+                                        "editable": "true",
+                                        "content": "E",
+                                        "classes": [
+                                            {
+                                                "name": "CTATTextField",
+                                                "active": false
+                                            }
+                                        ],
+                                        "attributes": {
+                                            "id": "ihxwf"
+                                        },
+                                        "droppbale": false
+                                    },
+                                    {
+                                        "type": "CTATCheckBox",
+                                        "classes": [
+                                            {
+                                                "name": "CTATCheckBox",
+                                                "active": false
+                                            }
+                                        ],
+                                        "attributes": {
+                                            "id": "breakBox5",
+                                            "name": "breakBox5"
+                                        },
+                                        "droppbale": false
+                                    },
+                                    {
+                                        "type": "text",
+                                        "resizable": true,
+                                        "editable": "true",
+                                        "content": "R",
+                                        "classes": [
+                                            {
+                                                "name": "CTATTextField",
+                                                "active": false
+                                            }
+                                        ],
+                                        "attributes": {
+                                            "id": "izd6h"
+                                        },
+                                        "droppbale": false
+                                    },
+                                    {
+                                        "type": "textnode",
+                                        "content": " \n              "
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "Flexbox",
+                                "resizable": true,
+                                "classes": [
+                                    {
+                                        "name": "flexbox",
+                                        "active": false
+                                    }
+                                ],
+                                "attributes": {
+                                    "id": "i1qbq"
+                                },
+                                "components": [
+                                    {
+                                        "type": "Flexbox",
+                                        "resizable": true,
+                                        "classes": [
+                                            {
+                                                "name": "flexbox",
+                                                "active": false
+                                            }
+                                        ],
+                                        "attributes": {
+                                            "id": "ivsqi"
+                                        },
+                                        "components": [
+                                            {
+                                                "type": "CTATComboBox",
+                                                "resizable": true,
+                                                "classes": [
+                                                    {
+                                                        "name": "CTATComboBox",
+                                                        "active": false
+                                                    }
+                                                ],
+                                                "attributes": {
+                                                    "type": "text",
+                                                    "required": true,
+                                                    "id": "ibcb9",
+                                                    "data-ctat-labels": "[Choose One],Open,Closed,Neither",
+                                                    "data-ctat-enabled": false
+                                                },
+                                                "droppbale": false
+                                            },
+                                            {
+                                                "type": "text",
+                                                "resizable": true,
+                                                "editable": "true",
+                                                "content": "LET",
+                                                "classes": [
+                                                    {
+                                                        "name": "CTATTextField",
+                                                        "active": false
+                                                    }
+                                                ],
+                                                "attributes": {
+                                                    "id": "ixatb"
+                                                },
+                                                "droppbale": false
+                                            },
+                                            {
+                                                "type": "textnode",
+                                                "content": " \n              "
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "Flexbox",
+                                        "resizable": true,
+                                        "classes": [
+                                            {
+                                                "name": "flexbox",
+                                                "active": false
+                                            }
+                                        ],
+                                        "attributes": {
+                                            "id": "ipdzf"
+                                        },
+                                        "components": [
+                                            {
+                                                "type": "CTATComboBox",
+                                                "resizable": true,
+                                                "classes": [
+                                                    {
+                                                        "name": "CTATComboBox",
+                                                        "active": false
+                                                    }
+                                                ],
+                                                "attributes": {
+                                                    "type": "text",
+                                                    "required": true,
+                                                    "id": "i9sag",
+                                                    "data-ctat-labels": "[Choose One],Open,Closed,Neither",
+                                                    "data-ctat-enabled": false
+                                                },
+                                                "droppbale": false
+                                            },
+                                            {
+                                                "type": "text",
+                                                "resizable": true,
+                                                "editable": "true",
+                                                "content": "TER",
+                                                "classes": [
+                                                    {
+                                                        "name": "CTATTextField",
+                                                        "active": false
+                                                    }
+                                                ],
+                                                "attributes": {
+                                                    "id": "i15dr"
+                                                },
+                                                "droppbale": false
+                                            },
+                                            {
+                                                "type": "textnode",
+                                                "content": " \n              "
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "textnode",
+                                        "content": " \n              "
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "CTATButton",
+                                "resizable": true,
+                                "classes": [
+                                    {
+                                        "name": "CTATButton",
+                                        "active": false
+                                    }
+                                ],
+                                "attributes": {
+                                    "data-ctat-label": "Submit",
+                                    "id": "submitButton"
+                                },
+                                "droppbale": false
+                            },
+                            {
+                                "type": "Flexbox",
+                                "resizable": true,
+                                "classes": [
+                                    {
+                                        "name": "flexbox",
+                                        "active": false
+                                    }
+                                ],
+                                "attributes": {
+                                    "id": "ilocg"
+                                },
+                                "components": [
+                                    {
+                                        "type": "textnode",
+                                        "content": " \n              "
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "textnode",
+                                "content": " \n              "
+                            }
+                        ]
+                    },
+                    {
+                        "tagName": "section",
+                        "resizable": true,
+                        "classes": [
+                            {
+                                "name": "HintWidgetRow",
+                                "active": false
+                            }
+                        ],
+                        "attributes": {
+                            "id": "is2hw"
+                        },
+                        "components": [
+                            {
+                                "resizable": true,
+                                "classes": [
+                                    {
+                                        "name": "HintWidgetButtons",
+                                        "active": false
+                                    }
+                                ],
+                                "attributes": {
+                                    "id": "i3kql"
+                                },
+                                "components": [
+                                    {
+                                        "type": "CTATHintButton",
+                                        "classes": [
+                                            {
+                                                "name": "CTATHintButton",
+                                                "active": false
+                                            }
+                                        ],
+                                        "components": [
+                                            {
+                                                "type": "textnode",
+                                                "content": "\n      "
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "CTATDoneButton",
+                                        "classes": [
+                                            {
+                                                "name": "CTATDoneButton",
+                                                "active": false
+                                            }
+                                        ],
+                                        "attributes": {
+                                            "id": "done"
+                                        },
+                                        "components": [
+                                            {
+                                                "type": "textnode",
+                                                "content": "\n      "
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "CTATHintWindow",
+                                "resizable": true,
+                                "classes": [
+                                    {
+                                        "name": "CTATHintWindow",
+                                        "active": false
+                                    }
+                                ],
+                                "attributes": {
+                                    "id": "io68c"
+                                },
+                                "components": [
+                                    {
+                                        "type": "textnode",
+                                        "content": "\n    "
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "CTATSkillWindow",
+                                "resizable": true,
+                                "classes": [
+                                    {
+                                        "name": "CTATSkillWindow",
+                                        "active": false
+                                    }
+                                ],
+                                "attributes": {
+                                    "id": "i4p5f"
+                                },
+                                "components": [
+                                    {
+                                        "type": "textnode",
+                                        "content": "\n    "
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "type": "textnode",
+                "content": " \n              "
+            }
+        ]
+    }
+]

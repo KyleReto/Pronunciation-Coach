@@ -1,0 +1,474 @@
+* {
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+:root {
+    --main-bg-color: antiquewhite;
+    --secondary-bg-color: rgb(231, 211, 175);
+    --title-bg-color: rgb(148, 182, 148);
+    --correct-highlight-color: green;
+    --incorrect-highlight-color: red;
+    --selected-highlight-color: blue;
+}
+
+body {
+    margin: 0;
+    background-color: var(--main-bg-color);
+    padding:1em;
+}
+
+.openClosedItem {
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    position: static;
+    float: none;
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-direction: column;
+    width: 150px;
+    height:70px;
+}
+
+.comboBox {
+    width: 125px;
+    margin-top: 20px;
+    margin-bottom:10px;
+}
+
+.vowel{
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    position: static;
+    float: none;
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-direction: column;
+    width: 25px;
+}
+
+.VowelCheck {
+    display: flex;
+    position: static;
+    right: auto;
+    max-width: 27px;
+}
+
+.VowelCheck input{
+    color:var(--selected-highlight-color);
+    border-color: transparent;
+}
+
+.VowelCheck input[type="checkbox"] {
+    position: absolute;
+    left: -999em;
+}
+
+.VowelCheck input[type="checkbox"] + label {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    opacity: 50%;
+    margin-top:-18px;
+    margin-left:5px;
+}
+
+.VowelCheck input[type="checkbox"] + label::before {
+    content: "";
+    display: inline-block;
+    vertical-align: -25%;
+    height: 9ex;
+    width: 2ex;
+    margin-right: 0.5em;
+    opacity: 0%;
+    margin-top:-20px;
+}
+
+.VowelCheck input[type="checkbox"]:checked + label::after{
+    content: '';
+    position: absolute;
+    background: rgba(0, 0, 0, 0);
+    border-top:5px;
+    left: 0ex;
+    border: 13px solid var(--selected-highlight-color);
+    color:var(--selected-highlight-color);
+    border-top: none;
+    border-right: none;
+}
+
+.VowelCheck input.CTAT--incorrect[type="checkbox"]:checked + label::after{
+    border: 13px solid var(--incorrect-highlight-color);
+    color:var(--incorrect-highlight-color);
+}
+
+.VowelCheck input.TATC--incorrect[type="checkbox"] + label {
+    margin-bottom:30px;
+    height: 20px;
+    transform: translate(-5px, -3px);
+    border: 12px solid var(--incorrect-highlight-color);
+    color:var(--incorrect-highlight-color);
+}
+
+.VowelCheck input.CTAT--correct[type="checkbox"]:checked + label::after{
+    border: 13px solid var(--correct-highlight-color);
+    color:var(--correct-highlight-color);
+}
+
+.VowelCheck input.TATC--correct[type="checkbox"] + label {
+    margin-bottom:30px;
+    height: 20px;
+    border-style: solid;
+    border-color: var(--correct-highlight-color);
+    border-width: 12px;
+    transform: translate(-5px, -3px);
+    color:var(--correct-highlight-color);
+}
+
+.BreakLetter {
+    width: 27px;
+    text-align: center;
+    position: relative;
+}
+
+.BreakCheck {
+    display: flex;
+    position: static;
+    right: auto;
+    max-width: 27px;
+}
+
+.containerCopy .BreakCheck{
+    margin-top:10px;
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
+.containerCopy .BreakCheck + label {
+    opacity: 100%;
+    content: '/';
+    font-weight:bold;
+    font-size: 20pt;
+    position: absolute;
+    background: rgba(0, 0, 0, 0);
+    color:rgba(69, 69, 69, 1);
+    border-right: none;
+    text-align: center;
+}
+
+.BreakCheck input[type="checkbox"] {
+    position: absolute;
+    left: -999em;
+}
+
+.BreakCheck input[type="checkbox"] + label {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    opacity: 50%;
+    margin-top:-25px;
+    padding-left:20px;
+    padding-top:10px;
+    padding-right: 10px;
+    text-align: center;
+}
+
+
+.containerCopy .BreakCheck input[type="checkbox"] + label {
+    opacity:100%;
+}
+
+.BreakCheck input[type="checkbox"] + label::before {
+    content: "";
+    font-weight:bold;
+    font-size:20pt;
+    display: inline-block;
+    vertical-align: -25%;
+    height: 3ex;
+    width: 0ex;
+    margin-right: 5em;
+    margin-left:-0.45em;
+    opacity: 100%;
+    margin-top:-20px;
+    text-align: center;
+}
+
+.BreakCheck input[type="checkbox"]:checked + label::after {
+    content: '/';
+    font-weight:bold;
+    font-size: 20pt;
+    position: absolute;
+    background: rgba(0, 0, 0, 0);
+    left: 0.9ex;
+    border: 0px;
+    color:var(--selected-highlight-color);
+    border-top: none;
+    border-right: none;
+    text-align: center;
+}
+
+.BreakCheck input[type="checkbox"] + label::after {
+    content: '/';
+    font-weight:bold;
+    font-size: 20pt;
+    position: absolute;
+    background: rgba(0, 0, 0, 0);
+    left: 0.9ex;
+    border: 0px;
+    color:rgba(69, 69, 69, 0.30);
+    border-top: none;
+    border-right: none;
+    text-align: center;
+}
+
+.BreakCheck input.CTAT--incorrect[type="checkbox"]:checked + label::after {
+    color:var(--incorrect-highlight-color);
+}
+
+.BreakCheck input.CTAT--correct[type="checkbox"]:checked + label::after {
+    color:var(--correct-highlight-color);
+}
+
+.TitleBlock {
+    background-color:var(--title-bg-color);
+    margin-top:10px;
+    margin-bottom:5px;
+    border-radius:15px;
+    text-align: center;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.flexcolumn {
+    background-color: var(--secondary-bg-color);
+    border-radius: 5px;
+    margin: 5px;
+    padding: 0px 10px;
+    height:auto;
+}
+
+#ilid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    flex-wrap: wrap;
+}
+
+#ir7fv {
+    padding: 10px;
+    font-weight: 700;
+    float: none;
+    position: static;
+    text-align: center;
+}
+
+#izh2j {
+    padding: 10px;
+    margin: 0px 0px 10px 0px;
+    float: none;
+    text-align: center;
+    line-height: normal;
+    font-size: 21px;
+    font-weight: 700;
+}
+
+.stepLabel {
+    padding: 10px;
+}
+
+#workspacePrompt {
+    padding: 10px;
+    text-align: center;
+    font-weight: 700;
+}
+
+#workspaceContainer {
+    text-align: center;
+    margin: 15px 0px;
+    width: 99.5%;
+    min-width:300px;
+    padding: 0px 10px 10px 10px;
+    border-radius:5px;
+    background-color: var(--secondary-bg-color);
+}
+
+#StepColumn {
+    max-width: 400px;
+    min-width:200px;
+}
+
+#iaqq{
+    width: 100%;
+}
+
+#is2hw {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    flex-wrap: wrap;
+}
+
+#i3kql {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-right: 10px;
+    max-width: 68px;
+}
+
+#io68c {
+    margin-right: 10px;
+}
+
+#breakingContainer {
+    height: 45px;
+    display: flex;
+    margin: auto;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.wordEntryBox {
+    width: 165px;
+    height: 29.199996948242188px;
+}
+
+.wordEntryContainer {
+    height: 45px; 
+    margin: auto;
+    margin-top:20px;
+    margin-bottom:20px;
+    justify-content: center;
+    align-items: center;
+}
+
+#iut8l {
+    width: 27px;
+}
+
+.containerCopy {
+    height: 50px;
+    display: flex;
+    margin: auto;
+    margin-top:20px;
+    margin-bottom:20px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+#vowelIdContainer {
+    height: 50px;
+    display: flex;
+    margin: auto;
+    margin-top:20px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+#ia6l8 {
+    width: 546.5px;
+    align-items:center;
+}
+
+#ixatb {
+    width: auto;
+    position: relative;
+}
+
+#openClosedContainer {
+    min-height: 50px;
+    height: 100px;
+    display: flex;
+    margin: auto;
+    margin-top: -20px;
+    text-align: center;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
+#i15dr {
+    width: 40.2px;
+    position: relative;
+}
+
+#vowel1 {
+    display: flex;
+    position: static;
+    right: auto;
+    max-width: 27px;
+}
+
+#ip4pm {
+    width: 27px;
+}
+
+#vowel6 {
+    display: flex;
+    position: static;
+    right: auto;
+    max-width: 27px;
+}
+
+#irz9g {
+    width: 27px;
+}
+
+#vowel5 {
+    display: flex;
+    position: static;
+    right: auto;
+    max-width: 27px;
+}
+
+#ib7vl {
+    width: 27px;
+}
+
+#vowel4 {
+    display: flex;
+    position: static;
+    right: auto;
+    max-width: 27px;
+}
+#i9d81 {
+    width: 27px;
+}
+
+#vowel3 {
+    display: flex;
+    position: static;
+    right: auto;
+    max-width: 27px;
+}
+
+#ixg8j {
+    width: 27px;
+}
+
+#vowel2 {
+    display: flex;
+    position: static;
+    right: auto;
+    max-width: 27px;
+}
+
+#icwk {
+    height:auto;
+}
+
+#breakBox1 {
+    display: flex;
+    position: static;
+    right: auto;
+    max-width: 27px;
+}
