@@ -6,6 +6,13 @@ stepPrompts.set(2, "Which letters are vowels?");
 stepPrompts.set(3, "Where do we split up the syllables in the word?");
 stepPrompts.set(4, "What does each vowel sound like?");
 
+$(function(){
+    generateVowelId('syllable');
+    generateBreaking('syllable');
+    generateOpenClosed(['syl', 'la', 'ble']);
+    setTimeout(() => {  fixInputIds(); }, 10);
+})
+
 // Clone a div to the attempt log, removing it from CTAT's view.
 function logToAttempts(containerString){
     let ele = $(containerString).clone();
@@ -122,11 +129,12 @@ function generateBreaking(wordStr){
         idIncrement++;
     });
 
-    container.find('label').remove();
+    $('label').empty();
     
     // TODO: update the ids/classes so that CTAT can grade it.
 }
 
+// Update step 4 so it matches the given set of syllables
 function generateOpenClosed(syllArr){
     let container = $('#openClosedContainer');
     let template = container.find('>:first-child').clone();
@@ -152,4 +160,38 @@ function generateOpenClosed(syllArr){
     container.find('option').remove();
     
     // TODO: update the ids/classes so that CTAT can grade it.
+}
+
+// Fix the interactable elements so that they have CTAT-recognizable IDs
+function fixInputIds(){
+    let workspace = $('#workspaceContainer');
+    // update the word textbox
+    workspace.find('#wordEntryBox > input').attr('id', 'wordEntryInput');
+
+    // update the vowel ID checkboxes
+    let vowelCount = 0;
+    workspace.find('#vowelIdContainer > div > .VowelCheck > input').each(function(){
+        $(this).attr('id', 'vowelInput' + vowelCount);
+        $(this).siblings().attr('for', 'vowelInput' + vowelCount);
+        vowelCount++;
+    });
+
+    // update the breaking checkboxes
+    let breakCount = 0;
+    workspace.find('#breakingContainer > .BreakCheck > input').each(function(){
+        $(this).attr('id', 'breakInput' + breakCount);
+        $(this).siblings().attr('for', 'breakInput' + breakCount);
+        breakCount++;
+    });
+
+    // update the open/closed selections
+    let selectionCount = 0;
+    console.log(workspace.find('#openClosedContainer > .openClosedItem > div'));
+    workspace.find('#openClosedContainer > .openClosedItem > div > select').each(function(){
+        $(this).attr('id', 'openClosedSelect' + selectionCount);
+        $(this).siblings().attr('for', 'openClosedSelect' + selectionCount);
+        selectionCount++;
+    });
+
+    setTimeout(() => {  $('label').empty(); }, 10);
 }

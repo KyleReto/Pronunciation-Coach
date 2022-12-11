@@ -1,0 +1,70 @@
+define Problem {
+	word: null,
+    vowelIds: null,
+    breakLocations: null,
+    syllSounds: null,
+	constructor: function(word) {
+		this.word = word;
+        this.vowelIds: [],
+        this.breakLocations: [],
+        this.syllSounds: [],
+	}
+}
+
+define VowelSelection {
+	name: null,
+	value: null,
+	constructor: function(n, v) {
+		this.name = n;
+		this.value = v;
+	}
+}
+
+define RadioButton {
+	name: null,
+	input: null,
+	value: null,
+	group: null,
+	constructor: function(n, i, v, g) {
+		this.name = n;
+		this.input = i;
+		this.value = v;
+		this.group = g;
+	}
+}
+
+define StudentValues {
+	selection: null,
+	action: null,
+	input: null,
+	constructor: function(s,a,i) {
+		this.selection = s;
+		this.action = a;
+		this.input = i;
+	}
+}
+
+define TPA {
+	selection: null,
+	action: null,
+	input: null,
+	constructor: function(s, a, i) {
+		this.selection = s;
+		this.action = a;
+		this.input = i;
+	}
+}
+
+define Hint {
+	precedence: 0,
+	msg: "",
+	constructor: function(m, optPrecedence) {
+		this.msg = m;
+		this.precedence = optPrecedence || 0;
+	}
+}
+
+define IsHintMatch {
+	constructor: function() {
+	}
+}

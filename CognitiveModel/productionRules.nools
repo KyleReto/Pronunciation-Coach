@@ -1,0 +1,44 @@
+import("types.nools");
+
+// helper functions here
+
+// TODO: replace this with new version
+rule Bootstrap {
+	when {
+		bool : Boolean bool == false from false;
+	}
+	then {
+		// interface elements first, may help with the order of the hints
+		let amt1 = assert(new TextInput("option1amt", ""));
+		let cost1 = assert(new TextInput("option1cost", ""));
+		let end1 = assert(new TextInput("option1end", ""));
+		let rb1 = assert(new RadioButton("option1radio", "option1radio: Option 1", null, "radioGroup"));
+		let amt2 = assert(new TextInput("option2amt", ""));
+		let cost2 = assert(new TextInput("option2cost", ""));
+		let end2 = assert(new TextInput("option2end", ""));
+		let rb2 = assert(new RadioButton("option2radio", "option2radio: Option 2", null, "radioGroup"));
+		let ca = assert(new TextInput("commonamt", ""));
+
+		// need to add code to create Problem and Options, and to link facts as needed
+		// Use the variables defined just above to link facts. Link them by name.
+		let opt1 = assert(new Option("option1", givenOption1.amount, givenOption1.cost, amt1.name, cost1.name, end1.name, rb1.name));
+		let opt2 = assert(new Option("option2", givenOption2.amount, givenOption2.cost, amt2.name, cost2.name, end2.name, rb2.name));
+		let prob = assert(new Problem(opt1.name, opt2.name, unit, factor, multiple, moreBetter, ca.name, false));
+
+		// set start state values in the interface
+		assert(new TPA("problemstatement", "UpdateTextArea", probtxt));
+		assert(new TPA("optionone", "UpdateTextArea", givenOption1.label));
+		assert(new TPA("optiontwo", "UpdateTextArea", givenOption2.label));
+		assert(new TPA("itemlabel", "UpdateTextArea", aLabel));
+		assert(new TPA("costlabel", "UpdateTextArea", cLabel));
+		assert(new TPA("questionone", "UpdateTextArea", q1));
+		assert(new TPA("questiontwo", "UpdateTextArea", q2));
+		assert(new TPA("questionthree", "UpdateTextArea", q3));
+
+		setProblemAttribute("use_backtracking", true);
+		setProblemAttribute("use_hint_fact", true);
+		halt();
+
+        let 
+	}
+}

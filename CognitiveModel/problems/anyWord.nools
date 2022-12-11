@@ -1,0 +1,8 @@
+import("productionRules.nools");
+import("skillDefs.nools");
+
+global aLabel = "Number of Tickets";
+global cLabel = "Cost of tickets";
+global q1 = "Use a common multiple to compare the cost of <br>the same number of tickets using each option.";
+global q2 = "What is the total cost for this number <br>of tickets at each theater?";
+global q3 = "Which is a better buy?";
