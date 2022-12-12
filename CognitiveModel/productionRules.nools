@@ -1,44 +1,95 @@
 import("types.nools");
 
 // helper functions here
+function getVowelIndices(word){
+	let indices = [];
+	let vowels = ['A', 'E', 'I', 'O', 'U', 'Y'];
+	for(var i=0; i < word.length; i++) {
+		if (vowels.includes(word[i].toUpperCase())){
+			indices.push(i);
+		}
+	}
+	return indices;
+}
 
-// TODO: replace this with new version
+
 rule Bootstrap {
 	when {
 		bool : Boolean bool == false from false;
 	}
 	then {
-		// interface elements first, may help with the order of the hints
-		let amt1 = assert(new TextInput("option1amt", ""));
-		let cost1 = assert(new TextInput("option1cost", ""));
-		let end1 = assert(new TextInput("option1end", ""));
-		let rb1 = assert(new RadioButton("option1radio", "option1radio: Option 1", null, "radioGroup"));
-		let amt2 = assert(new TextInput("option2amt", ""));
-		let cost2 = assert(new TextInput("option2cost", ""));
-		let end2 = assert(new TextInput("option2end", ""));
-		let rb2 = assert(new RadioButton("option2radio", "option2radio: Option 2", null, "radioGroup"));
-		let ca = assert(new TextInput("commonamt", ""));
-
-		// need to add code to create Problem and Options, and to link facts as needed
-		// Use the variables defined just above to link facts. Link them by name.
-		let opt1 = assert(new Option("option1", givenOption1.amount, givenOption1.cost, amt1.name, cost1.name, end1.name, rb1.name));
-		let opt2 = assert(new Option("option2", givenOption2.amount, givenOption2.cost, amt2.name, cost2.name, end2.name, rb2.name));
-		let prob = assert(new Problem(opt1.name, opt2.name, unit, factor, multiple, moreBetter, ca.name, false));
-
-		// set start state values in the interface
-		assert(new TPA("problemstatement", "UpdateTextArea", probtxt));
-		assert(new TPA("optionone", "UpdateTextArea", givenOption1.label));
-		assert(new TPA("optiontwo", "UpdateTextArea", givenOption2.label));
-		assert(new TPA("itemlabel", "UpdateTextArea", aLabel));
-		assert(new TPA("costlabel", "UpdateTextArea", cLabel));
-		assert(new TPA("questionone", "UpdateTextArea", q1));
-		assert(new TPA("questiontwo", "UpdateTextArea", q2));
-		assert(new TPA("questionthree", "UpdateTextArea", q3));
+		let indices = getVowelIndices(word);
+		for (let i = 0; i < indices.length; i++){
+			assert(new VowelLocation(indices[i]));
+		}
+		let prob = assert(new Problem(word,[2,4], ['Closed', 'Open', 'Neither']));
+		/*modify(prob, "subgoal", "findVowels");
+		startStep(2);*/
+		modify(prob, "subgoal", "enterWord");
+		startStep(1);
+		generateVowelId(prob.word);
 
 		setProblemAttribute("use_backtracking", true);
 		setProblemAttribute("use_hint_fact", true);
 		halt();
-
-        let 
 	}
 }
+
+// STAGE 1: ENTER A VALID WORD (enterWord)
+rule enterWord {
+	when {
+		prob: Problem prob.subgoal === "enterWord";
+		vowelLocation: VowelLocation !vowelLocation.isFound {ie: ieName};
+	}
+	then {
+		let entry = $('#wordEntryInput').val();
+		if (entry.indexOf(' ') == -1 && checkSAI({selection: 'submitButton', action: "ButtonPressed", input: '-1'})) {
+			modify(prob, "word", $('#wordEntryInput').val());
+			logToAttempts('#wordEntryContainer');
+			generateVowelId(prob.word);
+			startStep(2);
+			halt();
+		} else {
+			backtrack();
+		}
+	}
+}
+
+// STAGE 2: IDENTIFY VOWELS (findVowels)
+
+rule findSimpleVowels {
+	when {
+		prob: Problem prob.subgoal === "findVowels";
+		vowelLocation: VowelLocation !vowelLocation.isFound {ie: ieName};
+	}
+	then {
+		if (checkSAI({selection: 'vowelInputName' + vowelLocation.index, action: "UpdateCheckBox", input: 'vowelInput' + vowelLocation.index + ': true'})) {
+			modify(vowelLocation, "isFound", "true");
+			console.log('Found vowel at index ' + vowelLocation.index);
+			halt();
+		} else {
+			backtrack();
+		}
+	}
+}
+
+rule doneFindingVowels {
+	salience: -5;
+	when {
+		prob: Problem prob.subgoal === "findVowels";
+		not(vowelLocation: VowelLocation !vowelLocation.isFound);
+	}
+	then {
+		if(checkSAI({selection: 'submitButton', action: "ButtonPressed", input: '-1'})){
+			modify(prob, "subgoal", "breakWord");
+			logToAttempts('#vowelIdContainer');
+			startStep(3);
+		}
+	}
+}
+
+// STAGE 3: BREAK THE WORD (breakWord)
+
+// STAGE 4: ASSIGN OPEN/CLOSED (openClosed)
+
+// TODO: Done rule

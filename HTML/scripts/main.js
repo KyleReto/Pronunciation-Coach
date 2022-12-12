@@ -10,8 +10,22 @@ $(function(){
     generateVowelId('syllable');
     generateBreaking('syllable');
     generateOpenClosed(['syl', 'la', 'ble']);
-    setTimeout(() => {  fixInputIds(); }, 10);
+    setTimeout(() => {  fixInputIds(); }, 500);
+    $("#wordEntryBox").keyup(function(event) {
+        if (event.keyCode === 13) {
+            $("#ctatdiv3").click();
+        }
+    });
 })
+
+function unlockSubmit(){
+	let button = $('#submitButton');
+    console.log(button);
+	button.attr('data-ctat-enabled', 'true');
+    let child = button.children();
+    child.removeClass('CTAT--correct');
+	child.prop('disabled', false);
+}
 
 // Clone a div to the attempt log, removing it from CTAT's view.
 function logToAttempts(containerString){
@@ -27,6 +41,8 @@ function logToAttempts(containerString){
     ele.find('input').each(function(){
         let currentId = $(this).attr('id').replace(/TATC/ig, 'ctat');
         $(this).val($('#' + currentId).val());
+        $(this).removeClass('TATC--incorrect');
+        $(this).removeClass('TATC--correct');
     })
 
     ele.find('*').each(function(){
@@ -41,6 +57,7 @@ function logToAttempts(containerString){
     ele.addClass('containerCopy');
     idIncrement++;
     ele.appendTo("#ia6l8");
+    unlockSubmit();
 }
 
 // Call all relevant functions to start the next step
@@ -53,7 +70,6 @@ function startStep(stepNum){
 // Highlight (bold) a step on the left, so the student can tell where they are.
 function highlightStep(stepNum){
     $('.stepLabel').css('font-weight', 'normal');
-    console.log(parseInt(stepNum));
     $('.stepLabel:nth-child(' + (parseInt(stepNum) + 1) + ')').css('font-weight', 'bold')
 }
 
@@ -171,6 +187,8 @@ function fixInputIds(){
     // update the vowel ID checkboxes
     let vowelCount = 0;
     workspace.find('#vowelIdContainer > div > .VowelCheck > input').each(function(){
+        $(this).attr('value', 'vowelInput' + vowelCount);
+        $(this).attr('name', 'vowelInputName' + vowelCount);
         $(this).attr('id', 'vowelInput' + vowelCount);
         $(this).siblings().attr('for', 'vowelInput' + vowelCount);
         vowelCount++;
@@ -179,6 +197,8 @@ function fixInputIds(){
     // update the breaking checkboxes
     let breakCount = 0;
     workspace.find('#breakingContainer > .BreakCheck > input').each(function(){
+        $(this).attr('value', 'breakInput' + breakCount);
+        $(this).attr('name', 'breakInputName' + breakCount);
         $(this).attr('id', 'breakInput' + breakCount);
         $(this).siblings().attr('for', 'breakInput' + breakCount);
         breakCount++;
@@ -186,8 +206,9 @@ function fixInputIds(){
 
     // update the open/closed selections
     let selectionCount = 0;
-    console.log(workspace.find('#openClosedContainer > .openClosedItem > div'));
     workspace.find('#openClosedContainer > .openClosedItem > div > select').each(function(){
+        $(this).attr('value', 'openClosedSelect' + selectionCount);
+        $(this).attr('name', 'openClosedSelectName' + selectionCount);
         $(this).attr('id', 'openClosedSelect' + selectionCount);
         $(this).siblings().attr('for', 'openClosedSelect' + selectionCount);
         selectionCount++;

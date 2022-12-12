@@ -1,35 +1,40 @@
 define Problem {
 	word: null,
-    vowelIds: null,
     breakLocations: null,
     syllSounds: null,
-	constructor: function(word) {
+	subgoal: null,
+	constructor: function(word, breakLocations, syllSounds) {
 		this.word = word;
-        this.vowelIds: [],
-        this.breakLocations: [],
-        this.syllSounds: [],
+        this.breakLocations = breakLocations,
+        this.syllSounds = syllSounds;
+		this.subgoal = 'enterWord'
 	}
 }
 
-define VowelSelection {
-	name: null,
+define VowelLocation {
+	index: null,
+	isFound: null,
+	constructor: function(index) {
+		this.index = index;
+		this.isFound = false;
+	}
+}
+
+define BreakLocation {
+	index: null,
+	isFound: null,
+	constructor: function(index){
+		this.index = index;
+		this.found = false;
+	}
+}
+
+define interfaceElement {
+	ieId: null,
 	value: null,
 	constructor: function(n, v) {
-		this.name = n;
+		this.ieId = n;
 		this.value = v;
-	}
-}
-
-define RadioButton {
-	name: null,
-	input: null,
-	value: null,
-	group: null,
-	constructor: function(n, i, v, g) {
-		this.name = n;
-		this.input = i;
-		this.value = v;
-		this.group = g;
 	}
 }
 
