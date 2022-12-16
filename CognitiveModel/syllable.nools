@@ -1,0 +1,4 @@
+import("./productionRules.nools");
+// import("./skillDefs.nools");
+
+global word = 'syllable';

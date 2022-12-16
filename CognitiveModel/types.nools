@@ -1,39 +1,65 @@
 define Problem {
 	word: null,
-    breakLocations: null,
-    syllSounds: null,
+	chunks: null,
+	vowelIndices: null,
 	subgoal: null,
-	constructor: function(word, breakLocations, syllSounds) {
+	breakIndices: null,
+	constructor: function(word='') {
 		this.word = word;
-        this.breakLocations = breakLocations,
-        this.syllSounds = syllSounds;
-		this.subgoal = 'enterWord'
+		this.subgoal = 'enterWord';
+		this.vowelIndices = [];
+		this.chunks = [];
+		this.breakIndices = [];
 	}
 }
 
 define VowelLocation {
 	index: null,
 	isFound: null,
-	constructor: function(index) {
+	ieCheck: null,
+	constructor: function(index, ieCheck) {
 		this.index = index;
+		this.ieCheck = ieCheck;
 		this.isFound = false;
+	}
+}
+
+define ConsonantLocation {
+	index: null,
+	ieCheck: null,
+	constructor: function(index, ieCheck) {
+		this.index = index;
+		this.ieCheck = ieCheck;
 	}
 }
 
 define BreakLocation {
 	index: null,
 	isFound: null,
-	constructor: function(index){
+	ieCheck: null,
+	constructor: function(index, ieCheck){
 		this.index = index;
-		this.found = false;
+		this.isFound = false;
+		this.ieCheck = ieCheck;
+	}
+}
+
+define ChunkType {
+	chunkValue: null,
+	isFound: null,
+	ieSelect: null,
+	constructor: function(chunkValue, ieSelect){
+		this.chunkValue = chunkValue;
+		this.isFound = false;
+		this.ieSelect = ieSelect;
 	}
 }
 
 define interfaceElement {
-	ieId: null,
+	ieName: null,
 	value: null,
 	constructor: function(n, v) {
-		this.ieId = n;
+		this.ieName = n;
 		this.value = v;
 	}
 }

@@ -6,10 +6,11 @@
 :root {
     --main-bg-color: antiquewhite;
     --secondary-bg-color: rgb(231, 211, 175);
-    --title-bg-color: rgb(148, 182, 148);
+    --title-bg-color: rgb(134, 196, 134);
     --correct-highlight-color: green;
     --incorrect-highlight-color: red;
     --selected-highlight-color: blue;
+    --hint-highlight-color: yellow;
 }
 
 body {
@@ -71,8 +72,9 @@ body {
     overflow: hidden;
     cursor: pointer;
     opacity: 50%;
-    margin-top:-18px;
-    margin-left:5px;
+    margin-bottom:40px;
+    height: 25px;
+    transform: translate(-5px, -3px);
 }
 
 .VowelCheck input[type="checkbox"] + label::before {
@@ -81,21 +83,30 @@ body {
     vertical-align: -25%;
     height: 9ex;
     width: 2ex;
-    margin-right: 0.5em;
-    opacity: 0%;
-    margin-top:-20px;
+    margin-right:10px;
+    margin-left:20px;
+    height: 25px;
+    margin-top:-30px;
 }
 
 .VowelCheck input[type="checkbox"]:checked + label::after{
     content: '';
     position: absolute;
     background: rgba(0, 0, 0, 0);
-    border-top:5px;
-    left: 0ex;
+    left: 1ex;
     border: 13px solid var(--selected-highlight-color);
     color:var(--selected-highlight-color);
-    border-top: none;
-    border-right: none;
+}
+
+.VowelCheck input.TATC--blank[type="checkbox"] + label {
+    content: '';
+    position: absolute;
+    height: 3ex;
+    width: 1.5ex;
+    margin-left:-10px;
+    margin-bottom:8px;
+    background: rgba(0, 0, 0, 0);
+    transform: translate(-5px, -3px);
 }
 
 .VowelCheck input.CTAT--incorrect[type="checkbox"]:checked + label::after{
@@ -104,10 +115,14 @@ body {
 }
 
 .VowelCheck input.TATC--incorrect[type="checkbox"] + label {
-    margin-bottom:30px;
-    height: 20px;
-    transform: translate(-5px, -3px);
-    border: 12px solid var(--incorrect-highlight-color);
+    content: '';
+    position: absolute;
+    height: 3ex;
+    width: 1.5ex;
+    margin-left:-10px;
+    margin-bottom:5px;
+    background: rgba(0, 0, 0, 0);
+    border: 13px solid var(--incorrect-highlight-color);
     color:var(--incorrect-highlight-color);
 }
 
@@ -117,13 +132,32 @@ body {
 }
 
 .VowelCheck input.TATC--correct[type="checkbox"] + label {
-    margin-bottom:30px;
-    height: 20px;
-    border-style: solid;
-    border-color: var(--correct-highlight-color);
-    border-width: 12px;
-    transform: translate(-5px, -3px);
+    content: '';
+    position: absolute;
+    height: 3ex;
+    width: 1.5ex;
+    margin-left:-10px;
+    margin-bottom:5px;
+    background: rgba(0, 0, 0, 0);
+    border: 13px solid var(--correct-highlight-color);
     color:var(--correct-highlight-color);
+}
+
+.VowelCheck input.CTAT--hint[type="checkbox"]:checked + label::before{
+    border: 13px solid var(--hint-highlight-color);
+    color:var(--hint-highlight-color);
+}
+
+.VowelCheck input.TATC--hint[type="checkbox"] + label {
+    content: '';
+    position: absolute;
+    height: 3ex;
+    width: 1.5ex;
+    margin-left:-10px;
+    margin-bottom:5px;
+    background: rgba(0, 0, 0, 0);
+    border: 13px solid var(--hint-highlight-color);
+    color:var(--hint-highlight-color);
 }
 
 .BreakLetter {

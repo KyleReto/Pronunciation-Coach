@@ -1,36 +1,331 @@
 import("types.nools");
+// This code (along with most of the code elsewhere) doesn't exactly implement best practices.
+// Comments are littered throughout because this is kind of a mess.
+// For anyone hoping to extend this (including myself in future), I'd advise heavy rewrites on this file and main.js before extending functionality.
+// This file is heavily coupled to main.js, check there first if you see an unknown function.
 
 // helper functions here
 function getVowelIndices(word){
-	let indices = [];
+	let vowelIndices = [];
 	let vowels = ['A', 'E', 'I', 'O', 'U', 'Y'];
 	for(var i=0; i < word.length; i++) {
 		if (vowels.includes(word[i].toUpperCase())){
+			vowelIndices.push(i);
+		}
+	}
+	return vowelIndices;
+}
+
+function getConsonantIndices(word){
+	let indices = [];
+	let consonants = ['A', 'E', 'I', 'O', 'U', 'Y'];
+	for(var i=0; i < word.length; i++) {
+		if (!consonants.includes(word[i].toUpperCase())){
 			indices.push(i);
 		}
 	}
 	return indices;
 }
 
+// Find a pair of matching, adjacent consonants in a word.
+// Returns the an array containing all pairs found (empty if none)
+// Currently unused, but the implementation could be useful in future.
+function findConsonantPairs(word){
+	let temp = word.toUpperCase();
+	let vowels = ['A', 'E', 'I', 'O', 'U', 'Y'];
+	let output = [];
+	for (let i = 0; i < temp.length-1; i++){
+		if (temp.charAt(i) === temp.charAt(i+1) && !vowels.includes(temp.charAt(i))){
+			output.push(i);
+		}
+	}
+	return output;
+}
+
+// Check if arr1 contains all elements form arr2
+function containsAll(arr1, arr2){
+	for (let ele2 of arr2){
+		let has2 = false;
+		for (let ele1 of arr1){
+			if (ele2 === ele1){
+				has2 = true;
+				break;
+			}
+		}
+		if (has2 === false) return false;
+	}
+	return true;
+}
+
+// Given two arrays, remove all elements from targetArr that are shared between the two.
+function removeMatches(targetArr, keyArr){
+	console.log(targetArr);
+	console.log(keyArr);
+	for (let key of keyArr){
+		let indicesToRemove = [];
+		for (let i = 0; i < targetArr.length; i++){
+			if (targetArr[i] === key){
+				indicesToRemove.push(i);
+			}
+		}
+		for (let index of indicesToRemove){
+			targetArr.splice(index,1);
+		}
+	}
+	console.log(targetArr);
+}	
+
+// Split a word into an array, where each element is an atomic sound such that none can be broken apart, ever.
+function splitWord(word){
+	word = word.toLowerCase();
+	// declare various (relatively) unambiguous sounds. Note that some sounds are omitted due to not significantly affecting breaking, or being too ambiguous.
+	let complexSounds = [];
+	complexSounds.push('ay', 'ey', 'oy', 'ei', 'oi');
+	complexSounds.push('ar', 'er', 'ir', 'or', 'ur');
+	complexSounds.push('oo', 'ou', 'ea', 'oa', 'eu', 'au', 'aw', 'ow');
+	complexSounds.push('ie', 'ae', 'oe', 'ue', 'ee');
+	// Note: -le is weird, and almost always behaves like a vowel. In future iterations, this should be handled separately, but this should work 99% of the time anyways.
+	complexSounds.push('le');
+	complexSounds.push('th', 'ge', 'ch', 'sh');
+	// And these ones are just weird exceptions that stick together more often than not.
+	complexSounds.push('is', 'un');
+	let output = [];
+
+	for (let i = 0; i < word.length; i++){
+		// this goes out of bounds sometimes, but it's fine.
+		if (complexSounds.includes(word.charAt(i) + word.charAt(i+1))){
+			output.push(word.charAt(i) + word.charAt(i+1));
+			i++;
+		} else {
+			output.push(word.charAt(i));
+		}
+	}
+	return output;
+}
+
+// Figure out which syllables are open/closed/special. Returns an array with a shared index to chunkArr, giving correct responses for each.
+function getOpenClosed(chunkArr){
+	let processedChunks = [];
+	for (const chunk of chunkArr){
+		processedChunks.push(chunk.toLowerCase());
+	}
+	let openClosedArr = [];
+	let vowels = ['a', 'e', 'i', 'o', 'u', 'y'];
+	// Editorially speaking, I made the choice to consider all of the complex vowels as "special", which would have to be explained explicitly to students.
+	// This is the way I've taught it in the past, since complex vowels consistently make the same sound regardless of context.
+	let specialSounds = [];
+	specialSounds.push('ay', 'ey', 'oy', 'ei', 'oi');
+	specialSounds.push('ar', 'er', 'ir', 'or', 'ur');
+	specialSounds.push('oo', 'ou', 'ea', 'oa', 'eu', 'au', 'aw', 'ow');
+	specialSounds.push('ie', 'ae', 'oe', 'ue', 'ee');
+	// Note: These are special at the end of chunks, but could be closed or open otherwise.
+	let endOnly = ['le', 'ly'];
+	for (const chunk of processedChunks){
+		let ending = chunk.substring(chunk.length-2);
+		if (endOnly.includes(ending)){
+			openClosedArr.push('Special');
+			continue;
+		}
+		let isSpecial = false;
+		for (const specialSound of specialSounds){
+			if (chunk.includes(specialSound)){
+				isSpecial = true;
+				break;
+			}
+		}
+		if (isSpecial){
+			openClosedArr.push('Special');
+			continue;
+		}
+		if (vowels.includes(chunk.substring(chunk.length-1))){
+			openClosedArr.push('Open');
+		} else {
+			openClosedArr.push('Closed');
+		}
+	}
+	return openClosedArr;
+}
+
+// Break a word apart. I'd make this in rules, but there's not really enough time for that, so instead the tutor tests input against a programmatically defined correct answer.
+// Heuristics are used to attempt to give relevant effective feedback, but they aren't perfect.
+// Returns an 2D array: [array of new chunks, array of indices of breaks]. Break occurs immediately after the given index. (ex. let/ter has an index of 2).
+function breakWord(word){
+	let split = splitWord(word.toLowerCase());
+	// TODO: try to handle -y dynamically.
+	// All of these represent pairs of letters to never break up, which is priority number one.
+
+	let vowels = ['a', 'e', 'i', 'o', 'u', 'y'];
+	vowels.push('ay', 'ey', 'oy', 'ei', 'oi');
+	vowels.push('ar', 'er', 'ir', 'or', 'ur');
+	vowels.push('oo', 'ou', 'ea', 'oa', 'eu', 'au', 'aw', 'ow');
+	vowels.push('ie', 'ae', 'oe', 'ue', 'ee');
+	// Exceptions that behave like vowels for breaking.
+	vowels.push('le', 'is', 'un');
+
+	// These consonant blends combine if followed by another consonant, but don't otherwise. For example, 'st' combines in 'in/vest/ment', but not in 'mis/take'.
+	let blends = ['st', 'pl', 'tr', 'ns', 'tl', 'nt', 'ng'];
+
+	// Sometimes, the letter after 'e' negates the silent property, such as in 'a/nes/the/tic'.
+	let silentEndingExceptions = ['es', 'en', 'em', 'ex'];
+
+	// Normally, we break between two vowels. Anything that matches this pattern will ignore that rule.
+	let vvExceptionRegex = /[ts](ion|ure)/;
+
+	let workingChunk = '';
+	let chunkArr = [];
+	let breakLocations = [];
+	// General approach is this: Break word into vowels and consonants.
+	// Generally, CVC is preferred, CV if at all possible, V only if necessary.
+	// If there's a sequence of 3 or more Cs, only certain combinations are allowed. For example, 'st' can blend, but 'tm' cannot.
+		// If I had a list of every possible blend and their conditions (ex. 'ng' only at end of syllables), I could code that, but it's kind of out of scope.
+	let j = -1;
+	for (let i = 0; i < split.length; i++){
+		j += split[i].length;
+		workingChunk += split[i];
+		// V
+		if (vowels.includes(split[i])){
+			// VC
+			if (!vowels.includes(split[i+1]) && typeof split[i+1] != 'undefined'){
+				// VCV, chunk must end at the first V. (ex. 'me/ter')
+				if (vowels.includes(split[i+2])){
+					// if V2 is exactly 'e', the whole thing is one chunk. (ex. 'tube')
+					if (split[i+2] === 'e' && !silentEndingExceptions.includes(split[i+2] + split[i+3])){
+						console.log('Found silent e: ' + workingChunk + split[i+1] + split[i+2]);
+						chunkArr.push(workingChunk + split[i+1] + split[i+2]);
+						j += split[i+1].length + split[i+2].length;
+						breakLocations.push(j);
+						workingChunk = '';
+						i+= 2;
+					// if V2 is anything else, end at the first V (ex. 'me/ter', where 'er' is V2)
+					} else {
+						console.log('Found VC/V: ' + workingChunk);
+						breakLocations.push(j);
+						chunkArr.push(workingChunk);
+						workingChunk = '';
+					}
+				// VCC
+				} else {
+					// VCCV, chunk must end between the Cs
+					if (vowels.includes(split[i+3])){
+						console.log('Found VC/CV: ' + workingChunk + split[i+1]);
+						chunkArr.push(workingChunk + split[i+1]);
+						j += split[i+1].length;
+						breakLocations.push(j);
+						workingChunk = '';
+						i++;
+					// VCCC.
+					} else {
+						// C1 and C2 blend
+						if (blends.includes(split[i+1] + split[i+2])){
+							console.log('Found VCC/C via blend: ' + workingChunk + split[i+1] + split[i+2]);
+							chunkArr.push(workingChunk + split[i+1] + split[i+2]);
+							j += split[i+1].length + split[i+2].length;
+							breakLocations.push(j);
+							workingChunk = '';
+							i+= 2;
+						// C1 and C2 cannot blend
+						} else {
+							console.log('Found VC/CC, no blend: ' + workingChunk + split[i+1]);
+							chunkArr.push(workingChunk + split[i+1]);
+							j += split[i+1].length;
+							breakLocations.push(j);
+							workingChunk = '';
+							i++;
+						}
+					}
+				}
+			} else {
+				// Special exceptions for VV rule. (ex. "tion", "sion")
+				if (!(split[i-1] + split[i] + split[i+1] + split[i+2]).match(vvExceptionRegex)){
+					// Break between two vowels, if there's no exception.
+					console.log('found VV: ' + workingChunk);
+					chunkArr.push(workingChunk);
+					breakLocations.push(j);
+					workingChunk = '';
+				}
+			}
+		}
+	}
+	// If there's anything left over that wasn't claimed, staple it onto the last chunk.
+	console.log('adding remainder: ' + workingChunk);
+	chunkArr[chunkArr.length-1] += workingChunk;
+	breakLocations.pop();
+	return [chunkArr, breakLocations];
+}
+
+function getRandomWord(){
+	let words = ['letter', 'mascot', 'tennis', 'napkin', 'publish', 'goblin', 'picnic', 'cactus', 'combat', 'attic'];
+	words.push('fantastic', 'syllable', 'establish','penmanship','investment','consistent','misconduct','basketball','inhabit','astonish');
+	words.push('establishment','inconsistent','calisthenics','anesthetic','accomplishment','disinfectant','transatlantic','continental','academic','unexpected');
+	return words[Math.floor((Math.random()*words.length))];
+}
+
+// returns the list of common words the tutor can't properly break.
+// I didn't have time to complete this list, but future iterations could test many common English words to see if they fail in some way or another in the tutor.
+function getBlacklist(){
+	const blacklist = ['dictionary', 'quotient', 'mayonnaise'];
+	return blacklist;
+}
+
+//  Checks if the chunk as a special vowel in it. Returns the vowel if there is one, or false otherwise.
+function hasSpecialVowel(chunk){
+	let specialVowels = [];
+	specialVowels.push('ay', 'ey', 'oy', 'ei', 'oi');
+	specialVowels.push('ar', 'er', 'ir', 'or', 'ur');
+	specialVowels.push('oo', 'ou', 'ea', 'oa', 'eu', 'au', 'aw', 'ow');
+	specialVowels.push('ie', 'ae', 'oe', 'ue', 'ee', 'le');
+	for (const vowel of specialVowels){
+		if (chunk.toLowerCase().includes(vowel)) return vowel;
+	}
+	return false;
+}
 
 rule Bootstrap {
 	when {
 		bool : Boolean bool == false from false;
 	}
 	then {
-		let indices = getVowelIndices(word);
-		for (let i = 0; i < indices.length; i++){
-			assert(new VowelLocation(indices[i]));
-		}
-		let prob = assert(new Problem(word,[2,4], ['Closed', 'Open', 'Neither']));
-		/*modify(prob, "subgoal", "findVowels");
-		startStep(2);*/
+		let prob = assert(new Problem(word));
 		modify(prob, "subgoal", "enterWord");
 		startStep(1);
-		generateVowelId(prob.word);
-
 		setProblemAttribute("use_backtracking", true);
 		setProblemAttribute("use_hint_fact", true);
+		changeSubmitName('wordEntryBox');
+		$('#playAudio').hide();
+
+		// also very hacky, should probably break this out into its own function
+		if (word != ''){
+			modify(prob, 'subgoal', 'findVowels');
+
+			let indices = getVowelIndices(prob.word);
+			let indicesAsStrings = [];
+			for (let i = 0; i < indices.length; i++){
+				let ieName = 'vowelInput' + indices[i];
+				assert(new VowelLocation(indices[i], ieName));
+				indicesAsStrings.push(indices[i].toString());
+			}
+			modify(prob, 'vowelIndices', indicesAsStrings);
+			for (let i = 0; i < prob.word.length; i++){
+				assert(new interfaceElement('vowelInput' + i, false));
+			}
+
+			logToAttempts('#wordEntryContainer');
+			generateVowelId(prob.word);
+			let wordBroken = breakWord(prob.word);
+			let breakLocationsAsStrings = [];
+			modify(prob, 'chunks', wordBroken[0]);
+			for (const breakPoint of wordBroken[1]){
+				assert(new BreakLocation(breakPoint, 'breakInput' + breakPoint));
+				breakLocationsAsStrings.push(breakPoint.toString());
+			}
+			modify(prob, 'breakIndices', breakLocationsAsStrings);
+			let openClosed = getOpenClosed(wordBroken[0]);
+			for (let i = 0; i < openClosed.length; i++){
+				assert(new ChunkType(openClosed[i], 'openClosedSelect' + i))
+			}
+			startStep(2);
+		}
+
 		halt();
 	}
 }
@@ -39,14 +334,43 @@ rule Bootstrap {
 rule enterWord {
 	when {
 		prob: Problem prob.subgoal === "enterWord";
-		vowelLocation: VowelLocation !vowelLocation.isFound {ie: ieName};
 	}
 	then {
+		assert(new Hint('Enter any word you\'d like into the text box above. Click "Next" below if you want a random suggestion.'));
+		assert(new Hint('Try the word "' + getRandomWord() + '".'));
 		let entry = $('#wordEntryInput').val();
-		if (entry.indexOf(' ') == -1 && checkSAI({selection: 'submitButton', action: "ButtonPressed", input: '-1'})) {
+		// I saw in the documentation that there was a regex feature for checking SAI, but I couldn't find out how to use it here.
+		if (!getBlacklist().includes(entry.toLowerCase()) && entry.indexOf(' ') == -1 && checkSAI({selection: 'wordEntryBox', action: "UpdateTextField", input: 'don\'t_care'})) {
+			
 			modify(prob, "word", $('#wordEntryInput').val());
+			modify(prob, 'subgoal', 'findVowels');
+
+			let indices = getVowelIndices(prob.word);
+			let indicesAsStrings = [];
+			for (let i = 0; i < indices.length; i++){
+				let ieName = 'vowelInput' + indices[i];
+				assert(new VowelLocation(indices[i], ieName));
+				indicesAsStrings.push(indices[i].toString());
+			}
+			modify(prob, 'vowelIndices', indicesAsStrings);
+			for (let i = 0; i < prob.word.length; i++){
+				assert(new interfaceElement('vowelInput' + i, false));
+			}
+
 			logToAttempts('#wordEntryContainer');
 			generateVowelId(prob.word);
+			let wordBroken = breakWord(prob.word);
+			let breakLocationsAsStrings = [];
+			modify(prob, 'chunks', wordBroken[0]);
+			for (const breakPoint of wordBroken[1]){
+				assert(new BreakLocation(breakPoint, 'breakInput' + breakPoint));
+				breakLocationsAsStrings.push(breakPoint.toString());
+			}
+			modify(prob, 'breakIndices', breakLocationsAsStrings);
+			let openClosed = getOpenClosed(wordBroken[0]);
+			for (let i = 0; i < openClosed.length; i++){
+				assert(new ChunkType(openClosed[i], 'openClosedSelect' + i))
+			}
 			startStep(2);
 			halt();
 		} else {
@@ -55,17 +379,50 @@ rule enterWord {
 	}
 }
 
+rule buggyBlacklistWord {
+	salience: 5;
+	when {
+		prob: Problem prob.subgoal === "enterWord";
+	}
+	then {
+		// Common words that don't work in the tutor.
+		let entry = $('#wordEntryInput').val();
+		if (checkSAI({selection: 'wordEntryBox', action: "UpdateTextField", input: 'don\'t_care'}, null, true) && getBlacklist().includes(entry.toLowerCase())) {
+			setSuccessOrBugMsg("Sorry, that word is irregular. Please try a different word. Here's a random suggestion: \"" + getRandomWord() + "\".");
+			backtrack();
+		}
+	}
+}
+
+rule buggyMultiWord {
+	salience: 5;
+	when {
+		prob: Problem prob.subgoal === "enterWord";
+	}
+	then {
+		let entry = $('#wordEntryInput').val();
+		if (checkSAI({selection: 'wordEntryBox', action: "UpdateTextField", input: 'don\'t_care'}, null, true) && entry.indexOf(' ') != -1) {
+			setSuccessOrBugMsg("It looks like your word has a space in it. This tutor doesn't support multiple words at the same time.");
+			backtrack();
+		}
+	}
+}
+
 // STAGE 2: IDENTIFY VOWELS (findVowels)
 
+// Find simple vowels (a, e, i, o, u). Interface doesn't currently support finding complex vowels.
 rule findSimpleVowels {
 	when {
 		prob: Problem prob.subgoal === "findVowels";
-		vowelLocation: VowelLocation !vowelLocation.isFound {ie: ieName};
+		vowelLocation: VowelLocation !vowelLocation.isFound {ieCheck: selection, index: index};
 	}
 	then {
-		if (checkSAI({selection: 'vowelInputName' + vowelLocation.index, action: "UpdateCheckBox", input: 'vowelInput' + vowelLocation.index + ': true'})) {
-			modify(vowelLocation, "isFound", "true");
-			console.log('Found vowel at index ' + vowelLocation.index);
+		assert(new Hint('Click on the vowels in the word.'));
+		assert(new Hint('The letter \'' + prob.word.charAt(index) + '\' is a vowel.'));
+		assert(new Hint('Click on letter number ' + (index+1) + ', which is an "' + prob.word.charAt(index) + '".'));
+		if (checkSAI({selection: selection, action: "UpdateCheckBox", input: selection + '_check: true'})) {
+			modify(vowelLocation, "isFound", true);
+			console.log('Found vowel at index ' + index);
 			halt();
 		} else {
 			backtrack();
@@ -73,23 +430,287 @@ rule findSimpleVowels {
 	}
 }
 
+rule lastVowel {
+	salience: 5;
+	when {
+		prob: Problem prob.subgoal === "findVowels";
+		vowelLocation: VowelLocation !vowelLocation.isFound {ieCheck: selection, index: vowelIndex};
+		not(vl2: VowelLocation !vl2.isFound && vl2.ieCheck !== selection);
+	}
+	then {
+		assert(new Hint('Click on the vowels in the word.'));
+		assert(new Hint('The letter \'' + prob.word.charAt(vowelIndex) + '\' is a vowel.'));
+		assert(new Hint('Click on letter number ' + (vowelIndex+1) + ', which is an "' + prob.word.charAt(vowelIndex) + '".'));
+		if (checkSAI({selection: selection, action: "UpdateCheckBox", input: selection + '_check: true'})) {
+			modify(vowelLocation, "isFound", true);
+			console.log('Found last vowel at index ' + vowelIndex);
+			halt();
+			// very hacky, should fix in future.
+			setTimeout(() => {  
+				$('#submitButton').children().click();
+			}, 100);
+		} else {
+			backtrack();
+		}
+	}
+}
+
+rule buggyFindConsonant {
+	salience: -1;
+	when {
+		prob: Problem prob.subgoal === "findVowels";
+		sv: StudentValues sv.selection.substring(0,5) === 'vowel' && sv.input.slice(-4) === 'true' {selection: selection};
+		not(vl: VowelLocation vl.ieCheck === selection);
+	}
+	then {
+		if (checkSAI({selection: selection, action: "UpdateCheckBox", input: selection + '_check: true'}, null, true)) {
+			let letter = $('#' + selection).prev().text();
+			setSuccessOrBugMsg("You selected the letter " + letter + ', which is not a vowel.');
+			console.log('Erroneously selected consonant at index ' + selection);
+			halt();
+		}
+	}
+}
+
+rule buggyMissingVowel {
+	salience: -2;
+	when {
+		prob: Problem prob.subgoal === "findVowels";
+		vowelLocation: VowelLocation !vowelLocation.isFound {ieCheck: selection};
+		sv: StudentValues sv.selection === selection && sv.input.slice(-5) === 'false';
+	}
+	then {
+		if (checkSAI({selection: selection, action: "UpdateCheckBox", input: selection + '_check: false'}, null, true)) {
+			setSuccessOrBugMsg("It looks like you missed at least one vowel. Make sure to click on all the vowels. For now, make sure to click on all the Ys, too. Click \"Hint\" on the left if you need help.");
+			console.log('Missed vowel at index ' + selection);
+			halt();
+		}
+	}
+}
+
 rule doneFindingVowels {
 	salience: -5;
 	when {
-		prob: Problem prob.subgoal === "findVowels";
+		prob: Problem prob.subgoal === "findVowels" {vowelIndices: indices};
 		not(vowelLocation: VowelLocation !vowelLocation.isFound);
+		not(sv: StudentValues sv.selection.substring(0,5) === 'vowel' && sv.input.slice(-4) === 'true' && sv.selection.slice(10) notIn indices);
 	}
 	then {
-		if(checkSAI({selection: 'submitButton', action: "ButtonPressed", input: '-1'})){
-			modify(prob, "subgoal", "breakWord");
-			logToAttempts('#vowelIdContainer');
-			startStep(3);
+		for (let i = 0; i < prob.word.length; i++){
+			assert(new interfaceElement('breakInput' + i, false));
 		}
+		modify(prob, "subgoal", "breakWord");
+		logToAttempts('#vowelIdContainer');
+		startStep(3);
+		generateBreaking(prob.word);
+		halt();
 	}
 }
 
 // STAGE 3: BREAK THE WORD (breakWord)
 
+rule breakTheWord {
+	when {
+		prob: Problem prob.subgoal === "breakWord";
+		bl: BreakLocation !bl.isFound {ieCheck: selection};
+	}
+	then {
+		assert(new Hint('Click the slashes to put breaks between the syllables.'));
+		assert(new Hint('We can break between the letters \"' + prob.word.charAt(bl.index) + '\" and \"' + prob.word.charAt(bl.index+1) + '\".'));
+		assert(new Hint('Click on slash number ' + (bl.index+1) + '.'));
+		if (checkSAI({selection: selection, action: "UpdateCheckBox", input: selection + '_check: true'})) {
+			console.log('found break at ' + selection);
+			modify(bl, 'isFound', true);
+			halt();
+		} else {
+			backtrack();
+		}
+	}
+}
+
+// These are generic, catch-all feedback messages for wrong answers. More specific rules can be added for specific types of errors.
+rule buggyGenericFindWrongBreak {
+	salience: -4;
+	when {
+		prob: Problem prob.subgoal === "breakWord";
+		sv: StudentValues sv.selection.substring(0,5) === 'break' && sv.input.slice(-4) === 'true' {selection: selection};
+		not(bl: BreakLocation bl.ieCheck === selection);
+	}
+	then {
+		if (checkSAI({selection: selection, action: "UpdateCheckBox", input: selection + '_check: true'}, null, true)) {
+			let breakIndex = parseInt(selection.slice(10));
+			console.log(breakIndex);
+			setSuccessOrBugMsg("You selected the break between \"" + prob.word[breakIndex] + "\" and \"" + prob.word[breakIndex+1] + "\", which is incorrect.");
+			console.log('Erroneously found break at ' + selection);
+			halt();
+		}
+	}
+}
+
+rule buggyGenericMissedBreak {
+	salience: -4;
+	when {
+		prob: Problem prob.subgoal === "breakWord";
+		bl: BreakLocation !bl.isFound {ieCheck: selection};
+		sv: StudentValues sv.selection === selection && sv.input.slice(-5) === 'false';
+	}
+	then {
+		if (checkSAI({selection: selection, action: "UpdateCheckBox", input: selection + '_check: false'}, null, true)) {
+			let breakIndex = parseInt(selection.slice(10));
+			console.log(breakIndex);
+			setSuccessOrBugMsg("It looks like you missed at least one break. Make sure to click every correct breaking point in the word. Click \"Hint\" on the left if you need help.");
+			console.log('Missed break at ' + selection);
+			halt();
+		}
+	}
+}
+
+rule doneBreaking {
+	salience: -5;
+	when {
+		prob: Problem prob.subgoal === "breakWord" {breakIndices: indices};
+		not(bl: BreakLocation !bl.isFound);
+		not(sv: StudentValues sv.selection.substring(0,5) === 'break' && sv.input.slice(-4) === 'true' && sv.selection.slice(10) notIn indices);
+	}
+	then {
+		modify(prob, "subgoal", "openClosed");
+		logToAttempts('#breakingContainer');
+		startStep(4);
+		generateOpenClosed(prob.chunks);
+		halt();
+	}
+}
+
 // STAGE 4: ASSIGN OPEN/CLOSED (openClosed)
 
-// TODO: Done rule
+rule markOpenClosed {
+	when {
+		prob: Problem prob.subgoal === "openClosed";
+		ct: ChunkType !ct.isFound {ieSelect: selection, chunkValue: value};
+	}
+	then {
+		assert(new Hint('\"Open\" means that the vowel makes the same sound as its name, \"Closed\" means that it makes its other sound, and \"Special\" is for special vowel sounds that are made of multiple letters.', 3));
+		assert(new Hint('Syllables are \"Open\" when they end in a single vowel letter, \"Closed\" when they end in a consonant letter, and \"Special\" if they have multiple vowels. If a syllable is Special, it can\'t be Open or Closed.', 2));
+		// Hint rules would place one or more hints here.
+		assert(new Hint('Syllable number ' + (parseInt(selection.slice(16))+1) + ' is \"' + value + '\".', 0));
+		if (checkSAI({selection: selection, action: "UpdateComboBox", input: value})) {
+			console.log('Identified chunk at: ' + selection);
+			modify(ct, 'isFound', true);
+			halt();
+		} else {
+			backtrack();
+		}
+	}
+}
+
+rule lastMark {
+	salience: 5;
+	when {
+		prob: Problem prob.subgoal === "openClosed";
+		ct: ChunkType !ct.isFound {ieSelect: selection, chunkValue: value};
+		not(ct2: ChunkType !ct2.isFound && ct2.ieSelect != selection);
+	}
+	then {
+		assert(new Hint('\"Open\" means that the vowel makes the same sound as its name, \"Closed\" means that it makes its other sound, and \"Special\" is for special vowel sounds that are made of multiple letters.', 3));
+		assert(new Hint('Syllables are \"Open\" when they end in a single vowel letter, \"Closed\" when they end in a consonant letter, and \"Special\" if they have multiple vowels. If a syllable is Special, it can\'t be Open or Closed.', 2));
+		// Hint rules would place one or more hints here.
+		assert(new Hint('Syllable number ' + (parseInt(selection.slice(16))+1) + ' is \"' + value + '\".', 0));
+		if (checkSAI({selection: selection, action: "UpdateComboBox", input: value})) {
+			console.log('Identified last chunk at: ' + selection);
+			modify(ct, 'isFound', true);
+			modify(prob, 'subgoal', 'done');
+			halt();
+			// very hacky, should fix in future.
+			setTimeout(() => {  
+				logToAttempts('#openClosedContainer');
+				startStep(5);
+				$('#submitButton').hide();
+				setPrompt('Click the button below to hear the word, or click "Done" to move on.');
+				$('#playAudio').show();
+				$('#playAudio').click(function(){
+					let msg = new SpeechSynthesisUtterance();
+					msg.text = prob.word;
+					window.speechSynthesis.speak(msg);
+				});
+			}, 100);
+		} else {
+			backtrack();
+		}
+	}
+}
+
+rule buggyGenericWrongSelect {
+	salience: -2;
+	when{
+		prob: Problem prob.subgoal === "openClosed";
+		ct: ChunkType !ct.isFound {ieSelect: selection, chunkValue: value};
+		sv: StudentValues sv.selection === selection && sv.input != value {input: studentInput};
+	}
+	then {
+		if (checkSAI({selection: selection, action: "UpdateComboBox", input: 'don\'t_care'}, null, true)) {
+			setSuccessOrBugMsg("It looks like one or more of your selections isn't quite right. Click \"Hint\" on the left if you need help.");
+			console.log('Wrong selection at ' + selection);
+			halt();
+		}
+		// else do nothing and move to the next rule.
+	}
+}
+
+// Fires before the other hint rules here. If it fires, the other two won't.
+rule specialMarkingHint {
+	salience: 10;
+	when{
+		prob: Problem prob.subgoal === "openClosed";
+		ct: ChunkType !ct.isFound && ct.chunkValue === 'Special' {ieSelect: selection, chunkValue: value};
+	}
+	then {
+		let chunkNum = parseInt(selection.slice(16));
+		let vowel = hasSpecialVowel(prob.chunks[chunkNum]);
+		if (vowel){
+			assert(new Hint('The "' + prob.chunks[chunkNum] + '" syllable has the special vowel sound "' + vowel + '" in it.', 1));
+		}
+		// else do nothing and move to the next rule.
+	}
+}
+
+rule closedMarkingHint {
+	salience: 10;
+	when{
+		prob: Problem prob.subgoal === "openClosed";
+		ct: ChunkType !ct.isFound && ct.chunkValue === 'Closed' {ieSelect: selection, chunkValue: value};
+	}
+	then {
+		let chunkNum = parseInt(selection.slice(16));
+		assert(new Hint('The "' + prob.chunks[chunkNum] + '" syllable ends with the consonant "' + prob.chunks[chunkNum].slice(-1) + '".', 1));
+		// else do nothing and move to the next rule.
+	}
+}
+
+rule openMarkingHint {
+	salience: 10;
+	when{
+		prob: Problem prob.subgoal === "openClosed";
+		ct: ChunkType !ct.isFound && ct.chunkValue === 'Open' {ieSelect: selection, chunkValue: value};
+	}
+	then {
+		let chunkNum = parseInt(selection.slice(16));
+		assert(new Hint('The "' + prob.chunks[chunkNum] + '" syllable ends with the vowel "' + prob.chunks[chunkNum].slice(-1) + '".', 1));
+		// else do nothing and move to the next rule.
+	}
+}
+
+// Done
+rule Done {
+	when {
+		p : Problem p.subgoal === 'done';
+	}
+	then {
+		if (checkSAI({selection: 'done', action: "ButtonPressed", input: 'don\'t_care'})) {
+			halt();
+		}
+		else {
+			backtrack();
+		}
+		assert(new Hint("Click the 'Done' button."));
+	}
+}

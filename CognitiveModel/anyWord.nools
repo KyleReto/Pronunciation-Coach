@@ -1,0 +1,5 @@
+import("./productionRules.nools");
+// import("./skillDefs.nools");
+
+// If the word is blank, the tutor will allow the student to enter any word. Otherwise, it starts at step 2 with the given word.
+global word = '';

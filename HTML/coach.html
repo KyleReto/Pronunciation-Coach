@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="https://cdn.ctat.cs.cmu.edu/releases/lab/html-editor-default.css" />
   <link rel="stylesheet" href="./Assets/coach-styles.css" />
   <link rel="stylesheet" href="./Assets/TATC.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,700,1,0" />
   <script type="text/javascript" src="https://cdn.ctat.cs.cmu.edu/releases/lab/jquery.min.js"></script>
   <script type="text/javascript" src="https://cdn.ctat.cs.cmu.edu/releases/lab/nools.js"></script>
   <script type="text/javascript" src="https://cdn.ctat.cs.cmu.edu/releases/lab/ctat.min.js"></script>
@@ -14,10 +15,11 @@
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script> 
   <script src="https://cdn.ctat.cs.cmu.edu/releases/current/nools.js"></script>
   <script type="text/javascript" src="./scripts/main.js"></script>
+  
+  
 </head>
 
 <body>
-  <div id="iaqq" class="flexbox">
     <section id="ilid" class="HintWidgetRow">
       <div class="TitleBlock" id="izh2j">
         <div>Pronunciation Coach</div>
@@ -33,67 +35,70 @@
           <div class="stepLabel" id="step4Label">Step 4: Identify how each vowel sounds.<br></div>
         </div>
         <div id="ia6l8" class="flexcolumn">
-          <div id="ir7fv" class="TitleBlock">Attempt Log<br></div>
+          <div id="ir7fv" class="TitleBlock">History<br></div>
         </div>
 
       </section>
       <div id="workspaceContainer">
         <div class="TitleBlock" id="workspacePrompt">What word would you like to learn?<br></div>
         <div id="wordEntryContainer" class="flexbox wordEntryContainer">
-          <div id="wordEntryBox" class="CTATTextInput wordEntryBox"></div>
+          <div id="wordEntryBox" class="CTATTextInput wordEntryBox" autofocus="true"></div>
         </div>
         <div id="vowelIdContainer" class="flexbox">
           <div id="i1z1v" class="flexbox vowel">
             <div id="iut8l" class="CTATTextField">L</div>
-            <div id="vowel1" name="vowel1" class="CTATCheckBox VowelCheck"></div>
+            <div id="vowel1" name="vowel1" class="CTATCheckBox VowelCheck" data-ctat-tutor='false'></div>
           </div>
           <div id="i72if" class="flexbox vowel">
             <div id="ixg8j" class="CTATTextField">E</div>
-            <div id="vowel2" name="vowel2" class="CTATCheckBox VowelCheck"></div>
+            <div id="vowel2" name="vowel2" class="CTATCheckBox VowelCheck" data-ctat-tutor='false'></div>
           </div>
           <div id="indl8" class="flexbox vowel">
             <div id="i9d81" class="CTATTextField">T</div>
-            <div id="vowel3" name="vowel3" class="CTATCheckBox VowelCheck"></div>
+            <div id="vowel3" name="vowel3" class="CTATCheckBox VowelCheck" data-ctat-tutor='false'></div>
           </div>
           <div id="itkfs" class="flexbox vowel">
             <div id="ib7vl" class="CTATTextField">T</div>
-            <div id="vowel4" name="vowel4" class="CTATCheckBox VowelCheck"></div>
+            <div id="vowel4" name="vowel4" class="CTATCheckBox VowelCheck" data-ctat-tutor='false'></div>
           </div>
           <div id="ig9bv" class="flexbox vowel">
             <div id="irz9g" class="CTATTextField">E</div>
-            <div id="vowel5" name="vowel5" class="CTATCheckBox VowelCheck"></div>
+            <div id="vowel5" name="vowel5" class="CTATCheckBox VowelCheck" data-ctat-tutor='false'></div>
           </div>
           <div id="i7xst" class="flexbox vowel">
             <div id="ip4pm" class="CTATTextField">R</div>
-            <div id="vowel6" name="vowel6" class="CTATCheckBox VowelCheck"></div>
+            <div id="vowel6" name="vowel6" class="CTATCheckBox VowelCheck" data-ctat-tutor='false'></div>
           </div>
         </div>
         <div id="breakingContainer" class="flexbox">
           <div id="i34zk" class="CTATTextField BreakLetter">L</div>
-          <div id="breakBox1" name="breakBox1" class="CTATCheckBox BreakCheck"></div>
+          <div id="breakBox1" name="breakBox1" class="CTATCheckBox BreakCheck" data-ctat-tutor='false'></div>
           <div id="i4gwz" class="CTATTextField BreakLetter">E</div>
-          <div id="breakBox2" name="breakBox2" class="CTATCheckBox BreakCheck"></div>
+          <div id="breakBox2" name="breakBox2" class="CTATCheckBox BreakCheck" data-ctat-tutor='false'></div>
           <div id="in2lw" class="CTATTextField BreakLetter">T</div>
-          <div id="breakBox3" name="breakBox3" class="CTATCheckBox BreakCheck"></div>
+          <div id="breakBox3" name="breakBox3" class="CTATCheckBox BreakCheck" data-ctat-tutor='false'></div>
           <div id="idvtt" class="CTATTextField BreakLetter">T</div>
-          <div id="breakBox4" name="breakBox4" class="CTATCheckBox BreakCheck"></div>
+          <div id="breakBox4" name="breakBox4" class="CTATCheckBox BreakCheck" data-ctat-tutor='false'></div>
           <div id="ihxwf" class="CTATTextField BreakLetter">E</div>
-          <div id="breakBox5" name="breakBox5" class="CTATCheckBox BreakCheck"></div>
+          <div id="breakBox5" name="breakBox5" class="CTATCheckBox BreakCheck" data-ctat-tutor='false'></div>
           <div id="izd6h" class="CTATTextField BreakLetter">R</div>
         </div>
         <div id="openClosedContainer" class="flexbox">
           <div id="ivsqi" class="flexbox openClosedItem">
-            <div type="text" required id="ibcb9" data-ctat-labels="[Choose One],Open,Closed,Neither"
-              class="CTATComboBox comboBox"></div>
+            <div type="text" required id="ibcb9" data-ctat-labels="[Choose One],Open,Closed,Special"
+              class="CTATComboBox comboBox" data-ctat-tutor="false"></div>
             <div id="ixatb" class="CTATTextField">LET</div>
           </div>
           <div id="ipdzf" class="flexbox openClosedItem">
-            <div type="text" required id="i9sag" data-ctat-labels="[Choose One],Open,Closed,Neither"
-              class="CTATComboBox comboBox"></div>
+            <div type="text" required id="i9sag" data-ctat-labels="[Choose One],Open,Closed,Special"
+              class="CTATComboBox comboBox" data-ctat-tutor="false"></div>
             <div id="i15dr" class="CTATTextField">TER</div>
           </div>
         </div>
-        <div data-ctat-label="Submit" id="submitButton" class="CTATButton"></div>
+        <div data-ctat-label="Submit" id="submitButton" class="CTATSubmitButton CTATComponent" data-ctat-show-feedback='false' data-ctat-disable-on-correct="false"></div>
+        <span id='playAudio' class="material-symbols-outlined" style="cursor:pointer; transform:scale(3); margin:40px;">
+          volume_up
+        </span>
         <div id="ilocg" class="flexbox">
         </div>
       </div>
