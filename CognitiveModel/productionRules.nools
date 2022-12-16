@@ -120,6 +120,8 @@ function getOpenClosed(chunkArr){
 	specialSounds.push('ie', 'ae', 'oe', 'ue', 'ee');
 	// Note: These are special at the end of chunks, but could be closed or open otherwise.
 	let endOnly = ['le', 'ly'];
+	// TODO: Fix silent E bug. Currently, silent-e chunks are marked as "open", which isn't
+	//   completely wrong, but is inconsistent with expected behavior (should be "special").
 	for (const chunk of processedChunks){
 		let ending = chunk.substring(chunk.length-2);
 		if (endOnly.includes(ending)){
@@ -305,9 +307,6 @@ rule Bootstrap {
 				indicesAsStrings.push(indices[i].toString());
 			}
 			modify(prob, 'vowelIndices', indicesAsStrings);
-			for (let i = 0; i < prob.word.length; i++){
-				assert(new interfaceElement('vowelInput' + i, false));
-			}
 
 			logToAttempts('#wordEntryContainer');
 			generateVowelId(prob.word);
@@ -319,6 +318,7 @@ rule Bootstrap {
 				breakLocationsAsStrings.push(breakPoint.toString());
 			}
 			modify(prob, 'breakIndices', breakLocationsAsStrings);
+
 			let openClosed = getOpenClosed(wordBroken[0]);
 			for (let i = 0; i < openClosed.length; i++){
 				assert(new ChunkType(openClosed[i], 'openClosedSelect' + i))
@@ -353,9 +353,6 @@ rule enterWord {
 				indicesAsStrings.push(indices[i].toString());
 			}
 			modify(prob, 'vowelIndices', indicesAsStrings);
-			for (let i = 0; i < prob.word.length; i++){
-				assert(new interfaceElement('vowelInput' + i, false));
-			}
 
 			logToAttempts('#wordEntryContainer');
 			generateVowelId(prob.word);
@@ -421,6 +418,9 @@ rule findSimpleVowels {
 		assert(new Hint('The letter \'' + prob.word.charAt(index) + '\' is a vowel.'));
 		assert(new Hint('Click on letter number ' + (index+1) + ', which is an "' + prob.word.charAt(index) + '".'));
 		if (checkSAI({selection: selection, action: "UpdateCheckBox", input: selection + '_check: true'})) {
+			// Normally skill assertions should go before checkSAI(), but due to various other poor coding decisions, these rules often fire without student input at all.
+			// As a bandaid fix, skills are only asserted after the student gives the correct input, so as not to punish them for inputs they didn't make.
+			assert(new Skill("findSimpleVowels", "findVowels"));
 			modify(vowelLocation, "isFound", true);
 			console.log('Found vowel at index ' + index);
 			halt();
@@ -442,6 +442,7 @@ rule lastVowel {
 		assert(new Hint('The letter \'' + prob.word.charAt(vowelIndex) + '\' is a vowel.'));
 		assert(new Hint('Click on letter number ' + (vowelIndex+1) + ', which is an "' + prob.word.charAt(vowelIndex) + '".'));
 		if (checkSAI({selection: selection, action: "UpdateCheckBox", input: selection + '_check: true'})) {
+			assert(new Skill("findSimpleVowels", "findVowels"));
 			modify(vowelLocation, "isFound", true);
 			console.log('Found last vowel at index ' + vowelIndex);
 			halt();
@@ -496,9 +497,6 @@ rule doneFindingVowels {
 		not(sv: StudentValues sv.selection.substring(0,5) === 'vowel' && sv.input.slice(-4) === 'true' && sv.selection.slice(10) notIn indices);
 	}
 	then {
-		for (let i = 0; i < prob.word.length; i++){
-			assert(new interfaceElement('breakInput' + i, false));
-		}
 		modify(prob, "subgoal", "breakWord");
 		logToAttempts('#vowelIdContainer');
 		startStep(3);
@@ -519,6 +517,7 @@ rule breakTheWord {
 		assert(new Hint('We can break between the letters \"' + prob.word.charAt(bl.index) + '\" and \"' + prob.word.charAt(bl.index+1) + '\".'));
 		assert(new Hint('Click on slash number ' + (bl.index+1) + '.'));
 		if (checkSAI({selection: selection, action: "UpdateCheckBox", input: selection + '_check: true'})) {
+			assert(new Skill("breakWord", "breakWord"));
 			console.log('found break at ' + selection);
 			modify(bl, 'isFound', true);
 			halt();
@@ -593,7 +592,19 @@ rule markOpenClosed {
 		assert(new Hint('Syllables are \"Open\" when they end in a single vowel letter, \"Closed\" when they end in a consonant letter, and \"Special\" if they have multiple vowels. If a syllable is Special, it can\'t be Open or Closed.', 2));
 		// Hint rules would place one or more hints here.
 		assert(new Hint('Syllable number ' + (parseInt(selection.slice(16))+1) + ' is \"' + value + '\".', 0));
+			
 		if (checkSAI({selection: selection, action: "UpdateComboBox", input: value})) {
+			switch(value){
+				case 'Closed': 
+					assert(new Skill("findClosed", "findOpenClosed"));
+					break;
+				case 'Open':
+					assert(new Skill("findOpen", "findOpenClosed"));
+					break;
+				case 'Special':
+					assert(new Skill("findSpecial", "findOpenClosed"));
+					break;
+			}
 			console.log('Identified chunk at: ' + selection);
 			modify(ct, 'isFound', true);
 			halt();
@@ -615,7 +626,19 @@ rule lastMark {
 		assert(new Hint('Syllables are \"Open\" when they end in a single vowel letter, \"Closed\" when they end in a consonant letter, and \"Special\" if they have multiple vowels. If a syllable is Special, it can\'t be Open or Closed.', 2));
 		// Hint rules would place one or more hints here.
 		assert(new Hint('Syllable number ' + (parseInt(selection.slice(16))+1) + ' is \"' + value + '\".', 0));
+
 		if (checkSAI({selection: selection, action: "UpdateComboBox", input: value})) {
+			switch(value){
+				case 'Closed': 
+					assert(new Skill("findClosed", "findOpenClosed"));
+					break;
+				case 'Open':
+					assert(new Skill("findOpen", "findOpenClosed"));
+					break;
+				case 'Special':
+					assert(new Skill("findSpecial", "findOpenClosed"));
+					break;
+			}
 			console.log('Identified last chunk at: ' + selection);
 			modify(ct, 'isFound', true);
 			modify(prob, 'subgoal', 'done');

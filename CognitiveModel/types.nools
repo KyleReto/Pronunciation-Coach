@@ -24,6 +24,7 @@ define VowelLocation {
 	}
 }
 
+/* Currently Unused;  may be useful in future
 define ConsonantLocation {
 	index: null,
 	ieCheck: null,
@@ -31,7 +32,7 @@ define ConsonantLocation {
 		this.index = index;
 		this.ieCheck = ieCheck;
 	}
-}
+}*/
 
 define BreakLocation {
 	index: null,
@@ -54,7 +55,7 @@ define ChunkType {
 		this.ieSelect = ieSelect;
 	}
 }
-
+/* Currently Unused
 define interfaceElement {
 	ieName: null,
 	value: null,
@@ -62,7 +63,7 @@ define interfaceElement {
 		this.ieName = n;
 		this.value = v;
 	}
-}
+}*/
 
 define StudentValues {
 	selection: null,
@@ -93,6 +94,15 @@ define Hint {
 		this.msg = m;
 		this.precedence = optPrecedence || 0;
 	}
+}
+
+define Skill {
+	name: null,
+	category: null,
+	constructor: function(n, c) {
+		this.name = n;
+		this.category = c;
+  	}
 }
 
 define IsHintMatch {

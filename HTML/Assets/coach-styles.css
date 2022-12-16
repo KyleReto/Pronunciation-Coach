@@ -221,7 +221,6 @@ body {
     vertical-align: -25%;
     height: 3ex;
     width: 0ex;
-    margin-right: 5em;
     margin-left:-0.45em;
     opacity: 100%;
     margin-top:-20px;
@@ -232,7 +231,6 @@ body {
     content: '/';
     font-weight:bold;
     font-size: 20pt;
-    position: absolute;
     background: rgba(0, 0, 0, 0);
     left: 0.9ex;
     border: 0px;
@@ -258,10 +256,16 @@ body {
 
 .BreakCheck input.CTAT--incorrect[type="checkbox"]:checked + label::after {
     color:var(--incorrect-highlight-color);
+    text-shadow:0px 0px 5px;
+}
+
+.BreakCheck input.CTAT--incorrect[type="checkbox"] + label::after {
+    text-shadow:0px 0px 0px;
 }
 
 .BreakCheck input.CTAT--correct[type="checkbox"]:checked + label::after {
     color:var(--correct-highlight-color);
+    text-shadow:0px 0px 5px;
 }
 
 .TitleBlock {
@@ -505,4 +509,8 @@ body {
     position: static;
     right: auto;
     max-width: 27px;
+}
+
+#ctatdiv40 {
+    width: 66px;
 }

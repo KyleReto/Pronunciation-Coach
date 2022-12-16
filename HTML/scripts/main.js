@@ -85,6 +85,23 @@ function setPrompt(promptStr){
     $('#workspacePrompt').text(promptStr);
 }
 
+// Functions for the .brd files
+function hideAudio(){
+    $('#playAudio').hide();
+}
+
+function setAudio(text){
+    startStep(5);
+    $('#submitButton').hide();
+    $('#playAudio').show();
+    setPrompt('Click the button below to hear the word, or click "Done" to move on.');
+    $('#playAudio').click(function(){
+        let msg = new SpeechSynthesisUtterance();
+        msg.text = text;
+        window.speechSynthesis.speak(msg);
+    });
+}
+
 // Update step 2 so that it matches a given word
 function generateVowelId(wordStr){
     let container = $('#vowelIdContainer');

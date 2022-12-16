@@ -1,5 +1,4 @@
 <?xml version="1.0" standalone="yes"?>
-
 <stateGraph firstCheckAllStates="true" caseInsensitive="true" unordered="true" lockWidget="true" hintPolicy="Use Both Kinds of Bias" version="4.0" suppressStudentFeedback="Show All Feedback" highlightRightSelection="false" confirmDone="false" startStateNodeName="%(startStateNodeName)%" tutorType="Example-tracing Tutor">
     <startNodeMessages>
         <message>
@@ -28,104 +27,104 @@
         <text>state2</text>
         <uniqueID>2</uniqueID>
         <dimension>
-            <x>278</x>
-            <y>217</y>
+            <x>288</x>
+            <y>199</y>
         </dimension>
     </node>
     <node locked="false" doneState="false">
         <text>state17</text>
         <uniqueID>18</uniqueID>
         <dimension>
-            <x>173</x>
-            <y>276</y>
+            <x>178</x>
+            <y>267</y>
         </dimension>
     </node>
     <node locked="false" doneState="false">
         <text>state18</text>
         <uniqueID>19</uniqueID>
         <dimension>
-            <x>166</x>
-            <y>359</y>
+            <x>133</x>
+            <y>371</y>
         </dimension>
     </node>
     <node locked="false" doneState="false">
         <text>state20</text>
         <uniqueID>21</uniqueID>
         <dimension>
-            <x>152</x>
-            <y>530</y>
+            <x>157</x>
+            <y>521</y>
         </dimension>
     </node>
     <node locked="false" doneState="false">
         <text>state25</text>
         <uniqueID>26</uniqueID>
         <dimension>
-            <x>180</x>
-            <y>650</y>
+            <x>76</x>
+            <y>606</y>
         </dimension>
     </node>
     <node locked="false" doneState="false">
         <text>state29</text>
         <uniqueID>30</uniqueID>
         <dimension>
-            <x>225</x>
-            <y>822</y>
+            <x>230</x>
+            <y>813</y>
         </dimension>
     </node>
     <node locked="false" doneState="false">
         <text>state30</text>
         <uniqueID>31</uniqueID>
         <dimension>
-            <x>225</x>
-            <y>932</y>
+            <x>99</x>
+            <y>879</y>
         </dimension>
     </node>
     <node locked="false" doneState="false">
         <text>state31</text>
         <uniqueID>32</uniqueID>
         <dimension>
-            <x>225</x>
-            <y>1042</y>
+            <x>55</x>
+            <y>951</y>
         </dimension>
     </node>
     <node locked="false" doneState="false">
         <text>state36</text>
         <uniqueID>37</uniqueID>
         <dimension>
-            <x>212</x>
-            <y>1132</y>
+            <x>251</x>
+            <y>968</y>
         </dimension>
     </node>
     <node locked="false" doneState="false">
         <text>state37</text>
         <uniqueID>38</uniqueID>
         <dimension>
-            <x>503</x>
-            <y>449</y>
+            <x>498</x>
+            <y>357</y>
         </dimension>
     </node>
     <node locked="false" doneState="false">
         <text>state51</text>
         <uniqueID>52</uniqueID>
         <dimension>
-            <x>535</x>
-            <y>562</y>
+            <x>530</x>
+            <y>470</y>
         </dimension>
     </node>
     <node locked="false" doneState="false">
         <text>state52</text>
         <uniqueID>53</uniqueID>
         <dimension>
-            <x>543</x>
-            <y>664</y>
+            <x>538</x>
+            <y>572</y>
         </dimension>
     </node>
     <node locked="false" doneState="true">
         <text>Done</text>
         <uniqueID>54</uniqueID>
         <dimension>
-            <x>567</x>
-            <y>782</y>
+            <x>446</x>
+            <y>948</y>
         </dimension>
     </node>
     <node locked="false" doneState="false">
@@ -140,94 +139,74 @@
         <text>state60</text>
         <uniqueID>61</uniqueID>
         <dimension>
-            <x>93</x>
-            <y>739</y>
+            <x>98</x>
+            <y>730</y>
         </dimension>
     </node>
     <node locked="false" doneState="false">
         <text>state61</text>
         <uniqueID>62</uniqueID>
         <dimension>
-            <x>130</x>
-            <y>1086</y>
+            <x>125</x>
+            <y>994</y>
         </dimension>
     </node>
     <node locked="false" doneState="false">
         <text>state62</text>
         <uniqueID>63</uniqueID>
         <dimension>
-            <x>484</x>
-            <y>777</y>
+            <x>522</x>
+            <y>727</y>
         </dimension>
     </node>
     <node locked="false" doneState="false">
-        <text>state63</text>
-        <uniqueID>64</uniqueID>
+        <text>state64</text>
+        <uniqueID>65</uniqueID>
         <dimension>
-            <x>90</x>
-            <y>464</y>
+            <x>352</x>
+            <y>292</y>
         </dimension>
     </node>
-    <edge>
-        <actionLabel preferPathMark="true" minTraversals="1" maxTraversals="1">
-            <studentHintRequest></studentHintRequest>
-            <stepSuccessfulCompletion></stepSuccessfulCompletion>
-            <stepStudentError></stepStudentError>
-            <uniqueID>53</uniqueID>
-            <message>
-                <verb>SendNoteProperty</verb>
-                <properties>
-                    <MessageType>CorrectAction</MessageType>
-                    <Selection>
-                        <value>root</value>
-                    </Selection>
-                    <Action>
-                        <value>generateVowelId</value>
-                    </Action>
-                    <Input>
-                        <value>letter</value>
-                    </Input>
-                    <transaction_id>Tdb5c6c6f-3b17-4bc5-8f9c-8462d8fc7875</transaction_id>
-                </properties>
-            </message>
-            <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage></successMessage>
-            <hintMessage>Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
-            <callbackFn></callbackFn>
-            <actionType>Correct Action</actionType>
-            <oldActionType>Correct Action</oldActionType>
-            <checkedStatus>Never Checked</checkedStatus>
-            <matchers Concatenation="true">
-                <Selection>
-                    <matcher>
-                        <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">root</matcherParameter>
-                    </matcher>
-                </Selection>
-                <Action>
-                    <matcher>
-                        <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">generateVowelId</matcherParameter>
-                    </matcher>
-                </Action>
-                <Input>
-                    <matcher>
-                        <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">letter</matcherParameter>
-                    </matcher>
-                </Input>
-                <Actor linkTriggered="false">Tutor</Actor>
-            </matchers>
-        </actionLabel>
-        <preCheckedStatus>No-Applicable</preCheckedStatus>
-        <rule>
-            <text>unnamed</text>
-            <indicator>-1</indicator>
-        </rule>
-        <sourceID>2</sourceID>
-        <destID>18</destID>
-        <traversalCount>0</traversalCount>
-    </edge>
+    <node locked="false" doneState="false">
+        <text>state66</text>
+        <uniqueID>67</uniqueID>
+        <dimension>
+            <x>486</x>
+            <y>842</y>
+        </dimension>
+    </node>
+    <node locked="false" doneState="false">
+        <text>state69</text>
+        <uniqueID>69</uniqueID>
+        <dimension>
+            <x>-269</x>
+            <y>304</y>
+        </dimension>
+    </node>
+    <node locked="false" doneState="false">
+        <text>state71</text>
+        <uniqueID>71</uniqueID>
+        <dimension>
+            <x>-163</x>
+            <y>733</y>
+        </dimension>
+    </node>
+    <node locked="false" doneState="false">
+        <text>state73</text>
+        <uniqueID>73</uniqueID>
+        <dimension>
+            <x>598</x>
+            <y>175</y>
+        </dimension>
+    </node>
+    <node locked="false" doneState="false">
+        <text>state76</text>
+        <uniqueID>76</uniqueID>
+        <dimension>
+            <x>782</x>
+            <y>339</y>
+        </dimension>
+    </node>
     <edge>
         <actionLabel preferPathMark="true" minTraversals="1" maxTraversals="1">
             <studentHintRequest></studentHintRequest>
@@ -250,9 +229,9 @@
                     <transaction_id>Te526266d-a255-4533-9027-b6b39e922105</transaction_id>
                 </properties>
             </message>
-            <buggyMessage>No, this is not correct.</buggyMessage>
+            <buggyMessage><![CDATA[No, this is not correct.]]></buggyMessage>
             <successMessage></successMessage>
-            <hintMessage>Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
+            <hintMessage><![CDATA[Please provide your answer 'No_Value' in the highlighted element.]]></hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -261,19 +240,19 @@
                 <Selection>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">root</matcherParameter>
+                        <matcherParameter name="single"><![CDATA[root]]></matcherParameter>
                     </matcher>
                 </Selection>
                 <Action>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">startStep</matcherParameter>
+                        <matcherParameter name="single"><![CDATA[startStep]]></matcherParameter>
                     </matcher>
                 </Action>
                 <Input>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">2</matcherParameter>
+                        <matcherParameter name="single"><![CDATA[2]]></matcherParameter>
                     </matcher>
                 </Input>
                 <Actor linkTriggered="false">Tutor</Actor>
@@ -310,9 +289,10 @@
                     </Input>
                 </properties>
             </message>
-            <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage></successMessage>
-            <hintMessage>Please provide your answer 'vowelInput0_check: false' in the highlighted element.</hintMessage>
+            <buggyMessage><![CDATA[No, this is not correct.]]></buggyMessage>
+            <successMessage><![CDATA[Great, you got one of the vowels! It looks like you're missing at least one other vowel, though.]]></successMessage>
+            <hintMessage><![CDATA[Click on all of the vowels. English vowels include the letters "A", "E", "I", "O", "U", and "Y".]]></hintMessage>
+            <hintMessage><![CDATA[Please click on the two "e"s in this word.]]></hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -321,19 +301,19 @@
                 <Selection>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">vowelInput1</matcherParameter>
+                        <matcherParameter name="single"><![CDATA[vowelInput1]]></matcherParameter>
                     </matcher>
                 </Selection>
                 <Action>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">UpdateCheckBox</matcherParameter>
+                        <matcherParameter name="single"><![CDATA[UpdateCheckBox]]></matcherParameter>
                     </matcher>
                 </Action>
                 <Input>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">vowelInput1_check: true</matcherParameter>
+                        <matcherParameter name="single"><![CDATA[vowelInput1_check: true]]></matcherParameter>
                     </matcher>
                 </Input>
                 <Actor linkTriggered="false">Student</Actor>
@@ -370,9 +350,9 @@
                     </Input>
                 </properties>
             </message>
-            <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage></successMessage>
-            <hintMessage>Please provide your answer 'vowelInput0_check: false' in the highlighted element.</hintMessage>
+            <buggyMessage><![CDATA[No, this is not correct.]]></buggyMessage>
+            <successMessage><![CDATA[Great, you got one of the vowels! It looks like you're missing at least one other vowel, though.]]></successMessage>
+            <hintMessage><![CDATA[Please provide your answer 'vowelInput0_check: false' in the highlighted element.]]></hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -381,19 +361,19 @@
                 <Selection>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">vowelInput4</matcherParameter>
+                        <matcherParameter name="single"><![CDATA[vowelInput4]]></matcherParameter>
                     </matcher>
                 </Selection>
                 <Action>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">UpdateCheckBox</matcherParameter>
+                        <matcherParameter name="single"><![CDATA[UpdateCheckBox]]></matcherParameter>
                     </matcher>
                 </Action>
                 <Input>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">vowelInput4_check: true</matcherParameter>
+                        <matcherParameter name="single"><![CDATA[vowelInput4_check: true]]></matcherParameter>
                     </matcher>
                 </Input>
                 <Actor linkTriggered="false">Student</Actor>
@@ -430,9 +410,9 @@
                     <transaction_id>b0a76285-29c9-c975-449d-397ba0a03648</transaction_id>
                 </properties>
             </message>
-            <buggyMessage>No, this is not correct.</buggyMessage>
+            <buggyMessage><![CDATA[No, this is not correct.]]></buggyMessage>
             <successMessage></successMessage>
-            <hintMessage>Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
+            <hintMessage><![CDATA[Please provide your answer 'No_Value' in the highlighted element.]]></hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -441,19 +421,19 @@
                 <Selection>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">root</matcherParameter>
+                        <matcherParameter name="single"><![CDATA[root]]></matcherParameter>
                     </matcher>
                 </Selection>
                 <Action>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">startStep</matcherParameter>
+                        <matcherParameter name="single"><![CDATA[startStep]]></matcherParameter>
                     </matcher>
                 </Action>
                 <Input>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">3</matcherParameter>
+                        <matcherParameter name="single"><![CDATA[3]]></matcherParameter>
                     </matcher>
                 </Input>
                 <Actor linkTriggered="false">Tutor</Actor>
@@ -490,9 +470,9 @@
                     <transaction_id>c6adc17b-3700-8ec1-44b5-3d8804aae7b8</transaction_id>
                 </properties>
             </message>
-            <buggyMessage>No, this is not correct.</buggyMessage>
+            <buggyMessage><![CDATA[No, this is not correct.]]></buggyMessage>
             <successMessage></successMessage>
-            <hintMessage>Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
+            <hintMessage><![CDATA[Please provide your answer 'No_Value' in the highlighted element.]]></hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -501,19 +481,19 @@
                 <Selection>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">root</matcherParameter>
+                        <matcherParameter name="single"><![CDATA[root]]></matcherParameter>
                     </matcher>
                 </Selection>
                 <Action>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">startStep</matcherParameter>
+                        <matcherParameter name="single"><![CDATA[startStep]]></matcherParameter>
                     </matcher>
                 </Action>
                 <Input>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">4</matcherParameter>
+                        <matcherParameter name="single"><![CDATA[4]]></matcherParameter>
                     </matcher>
                 </Input>
                 <Actor linkTriggered="false">Tutor</Actor>
@@ -550,9 +530,11 @@
                     </Input>
                 </properties>
             </message>
-            <buggyMessage>No, this is not correct.</buggyMessage>
+            <buggyMessage><![CDATA[No, this is not correct.]]></buggyMessage>
             <successMessage></successMessage>
-            <hintMessage>Please select 'Closed' from the highlighted menu.</hintMessage>
+            <hintMessage><![CDATA["Closed" syllables end with a consonant, "Open" syllables end with a vowel, and "Special" syllables are any syllable which has a special (multi-letter) vowel sound in it.]]></hintMessage>
+            <hintMessage><![CDATA["Let" ends with a "t", which is a consonant.]]></hintMessage>
+            <hintMessage><![CDATA[Please select 'Closed' from the highlighted menu.]]></hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -561,19 +543,19 @@
                 <Selection>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">openClosedSelect0</matcherParameter>
+                        <matcherParameter name="single"><![CDATA[openClosedSelect0]]></matcherParameter>
                     </matcher>
                 </Selection>
                 <Action>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">UpdateComboBox</matcherParameter>
+                        <matcherParameter name="single"><![CDATA[UpdateComboBox]]></matcherParameter>
                     </matcher>
                 </Action>
                 <Input>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">Closed</matcherParameter>
+                        <matcherParameter name="single"><![CDATA[Closed]]></matcherParameter>
                     </matcher>
                 </Input>
                 <Actor linkTriggered="false">Student</Actor>
@@ -606,13 +588,15 @@
                         <value>UpdateComboBox</value>
                     </Action>
                     <Input>
-                        <value>Neither</value>
+                        <value>Special</value>
                     </Input>
                 </properties>
             </message>
-            <buggyMessage>No, this is not correct.</buggyMessage>
+            <buggyMessage><![CDATA[No, this is not correct.]]></buggyMessage>
             <successMessage></successMessage>
-            <hintMessage>Please enter 'let' in the highlighted field.</hintMessage>
+            <hintMessage><![CDATA["Closed" syllables end with a consonant, "Open" syllables end with a vowel, and "Special" syllables are any syllable which has a special (multi-letter) vowel sound in it.]]></hintMessage>
+            <hintMessage><![CDATA["Ter" has "er" in it, which is a special ("R-Controlled") vowel.]]></hintMessage>
+            <hintMessage><![CDATA[Please select 'Special' from the highlighted menu.]]></hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -621,19 +605,19 @@
                 <Selection>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">openClosedSelect1</matcherParameter>
+                        <matcherParameter name="single"><![CDATA[openClosedSelect1]]></matcherParameter>
                     </matcher>
                 </Selection>
                 <Action>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">UpdateComboBox</matcherParameter>
+                        <matcherParameter name="single"><![CDATA[UpdateComboBox]]></matcherParameter>
                     </matcher>
                 </Action>
                 <Input>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">Neither</matcherParameter>
+                        <matcherParameter name="single"><![CDATA[Special]]></matcherParameter>
                     </matcher>
                 </Input>
                 <Actor linkTriggered="false">Student</Actor>
@@ -670,8 +654,9 @@
                     </Input>
                 </properties>
             </message>
+            <buggyMessage></buggyMessage>
             <successMessage></successMessage>
-            <hintMessage>Please enter "letter" in the highlighted field.</hintMessage>
+            <hintMessage><![CDATA[Please enter "letter" in the highlighted field.]]></hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -680,19 +665,19 @@
                 <Selection>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">wordEntryBox</matcherParameter>
+                        <matcherParameter name="single"><![CDATA[wordEntryBox]]></matcherParameter>
                     </matcher>
                 </Selection>
                 <Action>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">UpdateTextField</matcherParameter>
+                        <matcherParameter name="single"><![CDATA[UpdateTextField]]></matcherParameter>
                     </matcher>
                 </Action>
                 <Input>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">letter</matcherParameter>
+                        <matcherParameter name="single"><![CDATA[letter]]></matcherParameter>
                     </matcher>
                 </Input>
                 <Actor linkTriggered="false">Tutor (unevaluated)</Actor>
@@ -729,9 +714,9 @@
                     <transaction_id>8e62c290-6d4a-277b-a432-98deb1a3f13b</transaction_id>
                 </properties>
             </message>
-            <buggyMessage>No, this is not correct.</buggyMessage>
+            <buggyMessage><![CDATA[No, this is not correct.]]></buggyMessage>
             <successMessage></successMessage>
-            <hintMessage>Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
+            <hintMessage><![CDATA[Please provide your answer 'No_Value' in the highlighted element.]]></hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -740,19 +725,19 @@
                 <Selection>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">root</matcherParameter>
+                        <matcherParameter name="single"><![CDATA[root]]></matcherParameter>
                     </matcher>
                 </Selection>
                 <Action>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">logToAttempts</matcherParameter>
+                        <matcherParameter name="single"><![CDATA[logToAttempts]]></matcherParameter>
                     </matcher>
                 </Action>
                 <Input>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">#wordEntryContainer</matcherParameter>
+                        <matcherParameter name="single"><![CDATA[#wordEntryContainer]]></matcherParameter>
                     </matcher>
                 </Input>
                 <Actor linkTriggered="false">Tutor</Actor>
@@ -789,9 +774,9 @@
                     <transaction_id>8e62c290-6d4a-277b-a432-98deb1a3f13b</transaction_id>
                 </properties>
             </message>
-            <buggyMessage>No, this is not correct.</buggyMessage>
+            <buggyMessage><![CDATA[No, this is not correct.]]></buggyMessage>
             <successMessage></successMessage>
-            <hintMessage>Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
+            <hintMessage><![CDATA[Please provide your answer 'No_Value' in the highlighted element.]]></hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -800,19 +785,19 @@
                 <Selection>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">root</matcherParameter>
+                        <matcherParameter name="single"><![CDATA[root]]></matcherParameter>
                     </matcher>
                 </Selection>
                 <Action>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">logToAttempts</matcherParameter>
+                        <matcherParameter name="single"><![CDATA[logToAttempts]]></matcherParameter>
                     </matcher>
                 </Action>
                 <Input>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">#vowelIdContainer</matcherParameter>
+                        <matcherParameter name="single"><![CDATA[#vowelIdContainer]]></matcherParameter>
                     </matcher>
                 </Input>
                 <Actor linkTriggered="false">Tutor</Actor>
@@ -849,9 +834,9 @@
                     <transaction_id>13b1f2ae-fd3a-1035-6230-479559e3edad</transaction_id>
                 </properties>
             </message>
-            <buggyMessage>No, this is not correct.</buggyMessage>
+            <buggyMessage><![CDATA[No, this is not correct.]]></buggyMessage>
             <successMessage></successMessage>
-            <hintMessage>Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
+            <hintMessage><![CDATA[Please provide your answer 'No_Value' in the highlighted element.]]></hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -860,19 +845,19 @@
                 <Selection>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">root</matcherParameter>
+                        <matcherParameter name="single"><![CDATA[root]]></matcherParameter>
                     </matcher>
                 </Selection>
                 <Action>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">generateBreaking</matcherParameter>
+                        <matcherParameter name="single"><![CDATA[generateBreaking]]></matcherParameter>
                     </matcher>
                 </Action>
                 <Input>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">letter</matcherParameter>
+                        <matcherParameter name="single"><![CDATA[letter]]></matcherParameter>
                     </matcher>
                 </Input>
                 <Actor linkTriggered="true">Tutor</Actor>
@@ -909,9 +894,9 @@
                     <transaction_id>b4de9a0d-46c7-b603-88d2-f972e8a6a7f5</transaction_id>
                 </properties>
             </message>
-            <buggyMessage>No, this is not correct.</buggyMessage>
+            <buggyMessage><![CDATA[No, this is not correct.]]></buggyMessage>
             <successMessage></successMessage>
-            <hintMessage>Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
+            <hintMessage><![CDATA[Please provide your answer 'No_Value' in the highlighted element.]]></hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -920,19 +905,19 @@
                 <Selection>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">root</matcherParameter>
+                        <matcherParameter name="single"><![CDATA[root]]></matcherParameter>
                     </matcher>
                 </Selection>
                 <Action>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">logToAttempts</matcherParameter>
+                        <matcherParameter name="single"><![CDATA[logToAttempts]]></matcherParameter>
                     </matcher>
                 </Action>
                 <Input>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">#openClosedContainer</matcherParameter>
+                        <matcherParameter name="single"><![CDATA[#openClosedContainer]]></matcherParameter>
                     </matcher>
                 </Input>
                 <Actor linkTriggered="false">Tutor</Actor>
@@ -945,66 +930,6 @@
         </rule>
         <sourceID>53</sourceID>
         <destID>63</destID>
-        <traversalCount>0</traversalCount>
-    </edge>
-    <edge>
-        <actionLabel preferPathMark="true" minTraversals="1" maxTraversals="1">
-            <studentHintRequest></studentHintRequest>
-            <stepSuccessfulCompletion></stepSuccessfulCompletion>
-            <stepStudentError></stepStudentError>
-            <uniqueID>153</uniqueID>
-            <message>
-                <verb>NotePropertySet</verb>
-                <properties>
-                    <MessageType>InterfaceAction</MessageType>
-                    <transaction_id>e067f85b-b0c9-74b0-0d38-15b86a2f28ae</transaction_id>
-                    <Selection>
-                        <value>done</value>
-                    </Selection>
-                    <Action>
-                        <value>ButtonPressed</value>
-                    </Action>
-                    <Input>
-                        <value>-1</value>
-                    </Input>
-                </properties>
-            </message>
-            <buggyMessage>No, this is not correct.</buggyMessage>
-            <successMessage></successMessage>
-            <hintMessage>Please click on the highlighted button.</hintMessage>
-            <callbackFn></callbackFn>
-            <actionType>Correct Action</actionType>
-            <oldActionType>Correct Action</oldActionType>
-            <checkedStatus>Never Checked</checkedStatus>
-            <matchers Concatenation="true">
-                <Selection>
-                    <matcher>
-                        <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">done</matcherParameter>
-                    </matcher>
-                </Selection>
-                <Action>
-                    <matcher>
-                        <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">ButtonPressed</matcherParameter>
-                    </matcher>
-                </Action>
-                <Input>
-                    <matcher>
-                        <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">-1</matcherParameter>
-                    </matcher>
-                </Input>
-                <Actor linkTriggered="false">Student</Actor>
-            </matchers>
-        </actionLabel>
-        <preCheckedStatus>No-Applicable</preCheckedStatus>
-        <rule>
-            <text>unnamed</text>
-            <indicator>-1</indicator>
-        </rule>
-        <sourceID>63</sourceID>
-        <destID>54</destID>
         <traversalCount>0</traversalCount>
     </edge>
     <edge>
@@ -1029,9 +954,11 @@
                     </Input>
                 </properties>
             </message>
-            <buggyMessage>No, this is not correct.</buggyMessage>
+            <buggyMessage><![CDATA[No, this is not correct.]]></buggyMessage>
             <successMessage></successMessage>
-            <hintMessage>Please provide your answer 'breakInput0_check: false' in the highlighted element.</hintMessage>
+            <hintMessage><![CDATA[Every syllable must have exactly one vowel sound.]]></hintMessage>
+            <hintMessage><![CDATA[If there's a pair of matching consonants next to each other, like "tt", always break between them.]]></hintMessage>
+            <hintMessage><![CDATA[Please click on the center break, between the two "t"s.]]></hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -1040,19 +967,19 @@
                 <Selection>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">breakInput2</matcherParameter>
+                        <matcherParameter name="single"><![CDATA[breakInput2]]></matcherParameter>
                     </matcher>
                 </Selection>
                 <Action>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">UpdateCheckBox</matcherParameter>
+                        <matcherParameter name="single"><![CDATA[UpdateCheckBox]]></matcherParameter>
                     </matcher>
                 </Action>
                 <Input>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">breakInput2_check: true</matcherParameter>
+                        <matcherParameter name="single"><![CDATA[breakInput2_check: true]]></matcherParameter>
                     </matcher>
                 </Input>
                 <Actor linkTriggered="false">Student</Actor>
@@ -1089,9 +1016,9 @@
                     <transaction_id>d8c5b6f9-d277-2977-2c87-acb41c635628</transaction_id>
                 </properties>
             </message>
-            <buggyMessage>No, this is not correct.</buggyMessage>
+            <buggyMessage><![CDATA[No, this is not correct.]]></buggyMessage>
             <successMessage></successMessage>
-            <hintMessage>Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
+            <hintMessage><![CDATA[Please provide your answer 'No_Value' in the highlighted element.]]></hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -1100,19 +1027,19 @@
                 <Selection>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">root</matcherParameter>
+                        <matcherParameter name="single"><![CDATA[root]]></matcherParameter>
                     </matcher>
                 </Selection>
                 <Action>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">logToAttempts</matcherParameter>
+                        <matcherParameter name="single"><![CDATA[logToAttempts]]></matcherParameter>
                     </matcher>
                 </Action>
                 <Input>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">#breakingContainer</matcherParameter>
+                        <matcherParameter name="single"><![CDATA[#breakingContainer]]></matcherParameter>
                     </matcher>
                 </Input>
                 <Actor linkTriggered="false">Tutor</Actor>
@@ -1149,9 +1076,9 @@
                     <transaction_id>f7d622fb-ccb1-8eb7-9d82-450dc007345e</transaction_id>
                 </properties>
             </message>
-            <buggyMessage>No, this is not correct.</buggyMessage>
+            <buggyMessage><![CDATA[No, this is not correct.]]></buggyMessage>
             <successMessage></successMessage>
-            <hintMessage>Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
+            <hintMessage><![CDATA[Please provide your answer 'No_Value' in the highlighted element.]]></hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -1160,19 +1087,19 @@
                 <Selection>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">root</matcherParameter>
+                        <matcherParameter name="single"><![CDATA[root]]></matcherParameter>
                     </matcher>
                 </Selection>
                 <Action>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">generateOpenClosed</matcherParameter>
+                        <matcherParameter name="single"><![CDATA[generateOpenClosed]]></matcherParameter>
                     </matcher>
                 </Action>
                 <Input>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">[let,ter]</matcherParameter>
+                        <matcherParameter name="single"><![CDATA[[let,ter]]]></matcherParameter>
                     </matcher>
                 </Input>
                 <Actor linkTriggered="false">Tutor</Actor>
@@ -1188,30 +1115,30 @@
         <traversalCount>0</traversalCount>
     </edge>
     <edge>
-        <actionLabel preferPathMark="false" minTraversals="1" maxTraversals="1">
+        <actionLabel preferPathMark="true" minTraversals="1" maxTraversals="1">
             <studentHintRequest></studentHintRequest>
             <stepSuccessfulCompletion></stepSuccessfulCompletion>
             <stepStudentError></stepStudentError>
-            <uniqueID>184</uniqueID>
+            <uniqueID>186</uniqueID>
             <message>
                 <verb>SendNoteProperty</verb>
                 <properties>
                     <MessageType>CorrectAction</MessageType>
                     <Selection>
-                        <value>No_Selection</value>
+                        <value>root</value>
                     </Selection>
                     <Action>
-                        <value>No_Action</value>
+                        <value>hideAudio</value>
                     </Action>
                     <Input>
-                        <value>No_Value</value>
+                        <value/>
                     </Input>
-                    <transaction_id>T45c3c431-3b40-40b9-86b9-4e8f137cede1</transaction_id>
+                    <transaction_id>Tee066616-c597-4d1a-828e-95967eccdfa8</transaction_id>
                 </properties>
             </message>
-            <buggyMessage>No, this is not correct.</buggyMessage>
+            <buggyMessage><![CDATA[No, this is not correct.]]></buggyMessage>
             <successMessage></successMessage>
-            <hintMessage>Please provide your answer 'No_Value' in the highlighted element.</hintMessage>
+            <hintMessage><![CDATA[Please provide your answer 'No_Value' in the highlighted element.]]></hintMessage>
             <callbackFn></callbackFn>
             <actionType>Correct Action</actionType>
             <oldActionType>Correct Action</oldActionType>
@@ -1220,19 +1147,243 @@
                 <Selection>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">No_Selection</matcherParameter>
+                        <matcherParameter name="single"><![CDATA[root]]></matcherParameter>
                     </matcher>
                 </Selection>
                 <Action>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">No_Action</matcherParameter>
+                        <matcherParameter name="single"><![CDATA[hideAudio]]></matcherParameter>
                     </matcher>
                 </Action>
                 <Input>
                     <matcher>
                         <matcherType>ExactMatcher</matcherType>
-                        <matcherParameter name="single">No_Value</matcherParameter>
+                        <matcherParameter name="single"><![CDATA[]]></matcherParameter>
+                    </matcher>
+                </Input>
+                <Actor linkTriggered="false">Tutor</Actor>
+            </matchers>
+        </actionLabel>
+        <preCheckedStatus>No-Applicable</preCheckedStatus>
+        <rule>
+            <text>unnamed</text>
+            <indicator>-1</indicator>
+        </rule>
+        <sourceID>2</sourceID>
+        <destID>65</destID>
+        <traversalCount>0</traversalCount>
+    </edge>
+    <edge>
+        <actionLabel preferPathMark="true" minTraversals="1" maxTraversals="1">
+            <studentHintRequest></studentHintRequest>
+            <stepSuccessfulCompletion></stepSuccessfulCompletion>
+            <stepStudentError></stepStudentError>
+            <uniqueID>53</uniqueID>
+            <message>
+                <verb>SendNoteProperty</verb>
+                <properties>
+                    <MessageType>CorrectAction</MessageType>
+                    <Selection>
+                        <value>root</value>
+                    </Selection>
+                    <Action>
+                        <value>generateVowelId</value>
+                    </Action>
+                    <Input>
+                        <value>letter</value>
+                    </Input>
+                    <transaction_id>Tdb5c6c6f-3b17-4bc5-8f9c-8462d8fc7875</transaction_id>
+                </properties>
+            </message>
+            <buggyMessage><![CDATA[No, this is not correct.]]></buggyMessage>
+            <successMessage></successMessage>
+            <hintMessage><![CDATA[Please provide your answer 'No_Value' in the highlighted element.]]></hintMessage>
+            <callbackFn></callbackFn>
+            <actionType>Correct Action</actionType>
+            <oldActionType>Correct Action</oldActionType>
+            <checkedStatus>Never Checked</checkedStatus>
+            <matchers Concatenation="true">
+                <Selection>
+                    <matcher>
+                        <matcherType>ExactMatcher</matcherType>
+                        <matcherParameter name="single"><![CDATA[root]]></matcherParameter>
+                    </matcher>
+                </Selection>
+                <Action>
+                    <matcher>
+                        <matcherType>ExactMatcher</matcherType>
+                        <matcherParameter name="single"><![CDATA[generateVowelId]]></matcherParameter>
+                    </matcher>
+                </Action>
+                <Input>
+                    <matcher>
+                        <matcherType>ExactMatcher</matcherType>
+                        <matcherParameter name="single"><![CDATA[letter]]></matcherParameter>
+                    </matcher>
+                </Input>
+                <Actor linkTriggered="false">Tutor</Actor>
+            </matchers>
+        </actionLabel>
+        <preCheckedStatus>No-Applicable</preCheckedStatus>
+        <rule>
+            <text>unnamed</text>
+            <indicator>-1</indicator>
+        </rule>
+        <sourceID>65</sourceID>
+        <destID>18</destID>
+        <traversalCount>0</traversalCount>
+    </edge>
+    <edge>
+        <actionLabel preferPathMark="true" minTraversals="1" maxTraversals="1">
+            <studentHintRequest></studentHintRequest>
+            <stepSuccessfulCompletion></stepSuccessfulCompletion>
+            <stepStudentError></stepStudentError>
+            <uniqueID>153</uniqueID>
+            <message>
+                <verb>NotePropertySet</verb>
+                <properties>
+                    <MessageType>InterfaceAction</MessageType>
+                    <transaction_id>e067f85b-b0c9-74b0-0d38-15b86a2f28ae</transaction_id>
+                    <Selection>
+                        <value>done</value>
+                    </Selection>
+                    <Action>
+                        <value>ButtonPressed</value>
+                    </Action>
+                    <Input>
+                        <value>-1</value>
+                    </Input>
+                </properties>
+            </message>
+            <buggyMessage><![CDATA[No, this is not correct.]]></buggyMessage>
+            <successMessage></successMessage>
+            <hintMessage><![CDATA[Please click on the "Done" button to the left.]]></hintMessage>
+            <callbackFn></callbackFn>
+            <actionType>Correct Action</actionType>
+            <oldActionType>Correct Action</oldActionType>
+            <checkedStatus>Never Checked</checkedStatus>
+            <matchers Concatenation="true">
+                <Selection>
+                    <matcher>
+                        <matcherType>ExactMatcher</matcherType>
+                        <matcherParameter name="single"><![CDATA[done]]></matcherParameter>
+                    </matcher>
+                </Selection>
+                <Action>
+                    <matcher>
+                        <matcherType>ExactMatcher</matcherType>
+                        <matcherParameter name="single"><![CDATA[ButtonPressed]]></matcherParameter>
+                    </matcher>
+                </Action>
+                <Input>
+                    <matcher>
+                        <matcherType>ExactMatcher</matcherType>
+                        <matcherParameter name="single"><![CDATA[-1]]></matcherParameter>
+                    </matcher>
+                </Input>
+                <Actor linkTriggered="false">Student</Actor>
+            </matchers>
+        </actionLabel>
+        <preCheckedStatus>No-Applicable</preCheckedStatus>
+        <rule>
+            <text>unnamed</text>
+            <indicator>-1</indicator>
+        </rule>
+        <sourceID>67</sourceID>
+        <destID>54</destID>
+        <traversalCount>0</traversalCount>
+    </edge>
+    <edge>
+        <actionLabel preferPathMark="true" minTraversals="1" maxTraversals="1">
+            <studentHintRequest></studentHintRequest>
+            <stepSuccessfulCompletion></stepSuccessfulCompletion>
+            <stepStudentError></stepStudentError>
+            <uniqueID>193</uniqueID>
+            <message>
+                <verb>SendNoteProperty</verb>
+                <properties>
+                    <MessageType>CorrectAction</MessageType>
+                    <Selection>
+                        <value>root</value>
+                    </Selection>
+                    <Action>
+                        <value>setAudio</value>
+                    </Action>
+                    <Input>
+                        <value>letter</value>
+                    </Input>
+                    <transaction_id>T823aa5fe-01aa-4d20-8bee-b5f1b1d29075</transaction_id>
+                </properties>
+            </message>
+            <buggyMessage><![CDATA[No, this is not correct.]]></buggyMessage>
+            <successMessage></successMessage>
+            <hintMessage><![CDATA[Please provide your answer 'No_Value' in the highlighted element.]]></hintMessage>
+            <callbackFn></callbackFn>
+            <actionType>Correct Action</actionType>
+            <oldActionType>Correct Action</oldActionType>
+            <checkedStatus>Never Checked</checkedStatus>
+            <matchers Concatenation="true">
+                <Selection>
+                    <matcher>
+                        <matcherType>ExactMatcher</matcherType>
+                        <matcherParameter name="single"><![CDATA[root]]></matcherParameter>
+                    </matcher>
+                </Selection>
+                <Action>
+                    <matcher>
+                        <matcherType>ExactMatcher</matcherType>
+                        <matcherParameter name="single"><![CDATA[setAudio]]></matcherParameter>
+                    </matcher>
+                </Action>
+                <Input>
+                    <matcher>
+                        <matcherType>ExactMatcher</matcherType>
+                        <matcherParameter name="single"><![CDATA[letter]]></matcherParameter>
+                    </matcher>
+                </Input>
+                <Actor linkTriggered="false">Tutor</Actor>
+            </matchers>
+        </actionLabel>
+        <preCheckedStatus>No-Applicable</preCheckedStatus>
+        <rule>
+            <text>unnamed</text>
+            <indicator>-1</indicator>
+        </rule>
+        <sourceID>63</sourceID>
+        <destID>67</destID>
+        <traversalCount>0</traversalCount>
+    </edge>
+    <edge>
+        <actionLabel preferPathMark="true" minTraversals="1" maxTraversals="1">
+            <studentHintRequest></studentHintRequest>
+            <stepSuccessfulCompletion></stepSuccessfulCompletion>
+            <stepStudentError></stepStudentError>
+            <uniqueID>195</uniqueID>
+            <message><verb>NotePropertySet</verb><properties><MessageType>InterfaceAction</MessageType><transaction_id>d2286e7a-7631-c8bf-9ec0-2ffd41892efa</transaction_id><Selection><value>vowelInput[0235]</value></Selection><Action><value>UpdateCheckBox</value></Action><Input><value><![CDATA[vowelInput1_check: true]]></value></Input></properties></message>
+            <buggyMessage><![CDATA[Sorry, at least one of those letters isn't a vowel. Click on the red consonants to remove the highlight.]]></buggyMessage>
+            <successMessage></successMessage>
+            <callbackFn></callbackFn>
+            <actionType>Buggy Action</actionType>
+            <oldActionType>Correct Action</oldActionType>
+            <checkedStatus>Never Checked</checkedStatus>
+            <matchers Concatenation="true">
+                <Selection>
+                    <matcher>
+                        <matcherType>RegexMatcher</matcherType>
+                        <matcherParameter name="single"><![CDATA[vowelInput[0235]]]></matcherParameter>
+                    </matcher>
+                </Selection>
+                <Action>
+                    <matcher>
+                        <matcherType>ExactMatcher</matcherType>
+                        <matcherParameter name="single"><![CDATA[UpdateCheckBox]]></matcherParameter>
+                    </matcher>
+                </Action>
+                <Input>
+                    <matcher>
+                        <matcherType>RegexMatcher</matcherType>
+                        <matcherParameter name="single"><![CDATA[vowelInput[0235]_check: true]]></matcherParameter>
                     </matcher>
                 </Input>
                 <Actor linkTriggered="false">Student</Actor>
@@ -1244,13 +1395,152 @@
             <indicator>-1</indicator>
         </rule>
         <sourceID>19</sourceID>
-        <destID>64</destID>
+        <destID>69</destID>
+        <traversalCount>0</traversalCount>
+    </edge>
+    <edge>
+        <actionLabel preferPathMark="true" minTraversals="1" maxTraversals="1">
+            <studentHintRequest></studentHintRequest>
+            <stepSuccessfulCompletion></stepSuccessfulCompletion>
+            <stepStudentError></stepStudentError>
+            <uniqueID>197</uniqueID>
+            <message><verb>NotePropertySet</verb><properties><MessageType>InterfaceAction</MessageType><transaction_id>be12daaf-7127-3ff8-de77-ad1db12b4cda</transaction_id><Selection><value>breakInput0</value></Selection><Action><value>UpdateCheckBox</value></Action><Input><value><![CDATA[breakInput0_check: false]]></value></Input></properties></message>
+            <buggyMessage><![CDATA[Sorry, at least one of those breaks isn't correct. If you see a pair of matching consonants, like "ll" or "tt" next to each other, always break between them.]]></buggyMessage>
+            <successMessage></successMessage>
+            <hintMessage><![CDATA[Please answer "breakInput0_check: false" on the highlighted element.]]></hintMessage>
+            <callbackFn></callbackFn>
+            <actionType>Buggy Action</actionType>
+            <oldActionType>Correct Action</oldActionType>
+            <checkedStatus>Never Checked</checkedStatus>
+            <matchers Concatenation="true">
+                <Selection>
+                    <matcher>
+                        <matcherType>RegexMatcher</matcherType>
+                        <matcherParameter name="single"><![CDATA[breakInput[0134]]]></matcherParameter>
+                    </matcher>
+                </Selection>
+                <Action>
+                    <matcher>
+                        <matcherType>ExactMatcher</matcherType>
+                        <matcherParameter name="single"><![CDATA[UpdateCheckBox]]></matcherParameter>
+                    </matcher>
+                </Action>
+                <Input>
+                    <matcher>
+                        <matcherType>RegexMatcher</matcherType>
+                        <matcherParameter name="single"><![CDATA[breakInput[0134]_check: true]]></matcherParameter>
+                    </matcher>
+                </Input>
+                <Actor linkTriggered="false">Student</Actor>
+            </matchers>
+        </actionLabel>
+        <preCheckedStatus>No-Applicable</preCheckedStatus>
+        <rule>
+            <text>unnamed</text>
+            <indicator>-1</indicator>
+        </rule>
+        <sourceID>31</sourceID>
+        <destID>71</destID>
+        <traversalCount>0</traversalCount>
+    </edge>
+    <edge>
+        <actionLabel preferPathMark="true" minTraversals="1" maxTraversals="1">
+            <studentHintRequest></studentHintRequest>
+            <stepSuccessfulCompletion></stepSuccessfulCompletion>
+            <stepStudentError></stepStudentError>
+            <uniqueID>199</uniqueID>
+            <message><verb>NotePropertySet</verb><properties><MessageType>InterfaceAction</MessageType><transaction_id>4a25ab7c-7918-2f27-5028-de8cf430b94c</transaction_id><Selection><value>openClosedSelect0</value></Selection><Action><value>UpdateComboBox</value></Action><Input><value><![CDATA[Closed]]></value></Input></properties></message>
+            <buggyMessage><![CDATA[The first syllable isn't quite right. "Let" ends with a "t", which is a consonant.]]></buggyMessage>
+            <successMessage></successMessage>
+            <hintMessage><![CDATA[Please select "Closed" from the highlighted menu.]]></hintMessage>
+            <callbackFn></callbackFn>
+            <actionType>Buggy Action</actionType>
+            <oldActionType>Correct Action</oldActionType>
+            <checkedStatus>Never Checked</checkedStatus>
+            <matchers Concatenation="true">
+                <Selection>
+                    <matcher>
+                        <matcherType>RegexMatcher</matcherType>
+                        <matcherParameter name="single"><![CDATA[openClosedSelect0]]></matcherParameter>
+                    </matcher>
+                </Selection>
+                <Action>
+                    <matcher>
+                        <matcherType>ExactMatcher</matcherType>
+                        <matcherParameter name="single"><![CDATA[UpdateComboBox]]></matcherParameter>
+                    </matcher>
+                </Action>
+                <Input>
+                    <matcher>
+                        <matcherType>RegexMatcher</matcherType>
+                        <matcherParameter name="single"><![CDATA[^(Special)|(Open)$]]></matcherParameter>
+                    </matcher>
+                </Input>
+                <Actor linkTriggered="false">Student</Actor>
+            </matchers>
+        </actionLabel>
+        <preCheckedStatus>No-Applicable</preCheckedStatus>
+        <rule>
+            <text>unnamed</text>
+            <indicator>-1</indicator>
+        </rule>
+        <sourceID>38</sourceID>
+        <destID>73</destID>
+        <traversalCount>0</traversalCount>
+    </edge>
+    <edge>
+        <actionLabel preferPathMark="true" minTraversals="1" maxTraversals="1">
+            <studentHintRequest></studentHintRequest>
+            <stepSuccessfulCompletion></stepSuccessfulCompletion>
+            <stepStudentError></stepStudentError>
+            <uniqueID>202</uniqueID>
+            <message><verb>NotePropertySet</verb><properties><MessageType>InterfaceAction</MessageType><transaction_id>e178929f-0adf-bd00-e9e9-3f7a3fc8150b</transaction_id><Selection><value>openClosedSelect1</value></Selection><Action><value>UpdateComboBox</value></Action><Input><value><![CDATA[Special]]></value></Input></properties></message>
+            <buggyMessage><![CDATA[The second syllable isn't quite right. "Ter" has the special vowel "er" in it.]]></buggyMessage>
+            <successMessage></successMessage>
+            <hintMessage><![CDATA[Please select "Closed" from the highlighted menu.]]></hintMessage>
+            <callbackFn></callbackFn>
+            <actionType>Buggy Action</actionType>
+            <oldActionType>Correct Action</oldActionType>
+            <checkedStatus>Never Checked</checkedStatus>
+            <matchers Concatenation="true">
+                <Selection>
+                    <matcher>
+                        <matcherType>ExactMatcher</matcherType>
+                        <matcherParameter name="single"><![CDATA[openClosedSelect1]]></matcherParameter>
+                    </matcher>
+                </Selection>
+                <Action>
+                    <matcher>
+                        <matcherType>ExactMatcher</matcherType>
+                        <matcherParameter name="single"><![CDATA[UpdateComboBox]]></matcherParameter>
+                    </matcher>
+                </Action>
+                <Input>
+                    <matcher>
+                        <matcherType>RegexMatcher</matcherType>
+                        <matcherParameter name="single"><![CDATA[^(Open)|(Closed)$]]></matcherParameter>
+                    </matcher>
+                </Input>
+                <Actor linkTriggered="false">Student</Actor>
+            </matchers>
+        </actionLabel>
+        <preCheckedStatus>No-Applicable</preCheckedStatus>
+        <rule>
+            <text>unnamed</text>
+            <indicator>-1</indicator>
+        </rule>
+        <sourceID>38</sourceID>
+        <destID>76</destID>
         <traversalCount>0</traversalCount>
     </edge>
     <EdgesGroups ordered="false">
         <group name="Vowel ID" ordered="false" reenterable="true">
             <link id="75"/>
-            <link id="63"/></group>
+            <link id="63"/>
+        </group>
+        <group name="Group 1" ordered="false" reenterable="true">
+            <link id="144"/>
+            <link id="146"/>
+        </group>
     </EdgesGroups>
 </stateGraph>
-

@@ -1,3 +1,34 @@
-// TODO: Update these
+// Note: opportunities are hardcoded to 2 here, but they actually vary in reality.
 global skill_definitions = [
+	{
+		skillName: "findSimpleVowels",
+		category: "findVowels",
+		opportunities: 2,
+		label: "Find Simple Vowels",
+        description: "Find A, E, I, O, U, or Y in a word."
+	},{
+		skillName: "breakWord",
+		category: "breakWord",
+		opportunities: 2,
+		label: "Break a Word Apart",
+        description: "Break a word into its syllables."
+	},{
+		skillName: "findClosed",
+		category: "findOpenClosed",
+		opportunities: 2,
+		label: "Identify Closed Vowel Sounds",
+        description: "Identify if the vowel sound in a syllable will sound closed/short."
+	},{
+		skillName: "findOpen",
+		category: "findOpenClosed",
+		opportunities: 2,
+		label: "Identify Open Vowel Sounds",
+        description: "Identify if the vowel sound in a syllable will sound open/long."
+	},{
+		skillName: "findSpecial",
+		category: "findOpenClosed",
+		opportunities: 2,
+		label: "Identify Special Vowel Sounds",
+        description: "Identify if the vowel sound in a syllable will sound special."
+	}
 ];
